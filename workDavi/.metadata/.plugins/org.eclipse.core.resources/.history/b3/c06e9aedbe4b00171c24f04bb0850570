@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class Main {
+	private static Scanner scn = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int opcao = 0;
+
+		Banco banco = new Banco("Banco do Brasil");
+		do {
+			System.out.println("---------------------------");
+			System.out.println("0 - SAIR");
+			System.out.println("1 - Cadastrar cliente");
+			System.out.println("2 - Alterar cliente");
+			System.out.println("3 - Excluir cliente");
+			System.out.println("4 - Listar clientes");
+			System.out.println("5 - Acrescentar endereço ao cliente'");
+			opcao = scn.nextInt();
+			switch (opcao) {
+			case 0:
+				System.out.println("BYE BYE");
+				break;
+			case 1:
+				Cliente cliente = lerCliente();
+				banco.adicionar(cliente);
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			case 4:
+				Cliente[] clientes = banco.listar();
+				listar(clientes);
+				break;
+			case 5:
+
+				break;
+			default:
+				System.out.println("Opção inválido!!!");
+			}
+		} while (opcao != 0);
+		scn.close();
+	}
+
+	private static Cliente lerCliente() {
+		System.out.println("-- CADASTRO DE CLIENTE --");
+		System.out.println("Nome: ");
+		String nome = scn.next();
+		System.out.println("CPF: ");
+		String cpf = scn.next();
+		Endereco end = lerEndereco();
+
+		Cliente c = Cliente.newInstance(nome, cpf, end);
+		return c;
+	}
+
+	private static Endereco lerEndereco() {
+		System.out.println("TIpo (Res/Com): ");
+		String tipo = scn.next();
+		System.out.println("Logradouro: ");
+		String logradouro = scn.next();
+		System.out.println("Número: ");
+		int numero = scn.nextInt();
+		System.out.println("Cidade: ");
+		String cidade = scn.next();
+		System.out.println("UF: ");
+		String uf = scn.next().substring(0, 2);
+		System.out.println("CEP: ");
+		String cep = scn.next();
+		Endereco e = Endereco.newInstance(tipo, logradouro, numero, cidade, uf, cep);
+		return e;
+	}
+
+	private static void listar(Cliente[] clientes) {
+		System.out.println("-- LISTAGEM DOS CLIENTES --");
+		for (int i = 0; i < clientes.length; i++) {
+			if (clientes == null) {
+				System.out.println("Não existem clientes cadastrados");
+			} else {
+				System.out.println("CPF\tNOME\tENDERECO");
+				for (Cliente c : clientes) {
+					Endereco e = c.getEnd()[0];
+					System.out.println(c.getCpf() + "\t" + c.getNome() + "\t" + e.getCep() + "\t" + e.getCidade() + "\t"
+							+ e.getLogradouro() + "\t" + e.getNumero() + "\t" + e.getNumero() + "\t" + e.getNumero()
+							+ "\t" + e.getTipo() + "\t" + e.getUf());
+				}
+			}
+		}
+	}
+}

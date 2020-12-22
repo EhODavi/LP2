@@ -1,0 +1,6 @@
+
+class Jogador {
+	int pontuacao;
+	
+	
+}

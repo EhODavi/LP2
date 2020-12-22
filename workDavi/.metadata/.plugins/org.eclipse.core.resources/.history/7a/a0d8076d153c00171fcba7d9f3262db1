@@ -1,0 +1,18 @@
+
+class Empresa {
+	String nome;
+	String cnpj;
+	Funcionario[] empregados;
+
+	void adiciona(Funcionario f) {
+		int contador = 0;
+		boolean logico = false;
+		while(logico == false) {
+			if(this.empregados[contador] == null) {
+				this.empregados[contador] = f;
+				logico = true;
+			}
+			contador++;
+		}
+	}
+}

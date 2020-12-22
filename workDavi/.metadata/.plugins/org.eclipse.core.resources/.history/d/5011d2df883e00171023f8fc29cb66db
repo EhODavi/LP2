@@ -1,0 +1,6 @@
+
+class Cartao {
+	Conta c;
+	int senhaNumerica;
+	Debito[] relacaoDeDebitos;
+}

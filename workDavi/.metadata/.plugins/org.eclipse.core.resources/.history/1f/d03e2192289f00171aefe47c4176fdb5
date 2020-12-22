@@ -1,0 +1,10 @@
+package br.cefetmg.RVCA.controle;
+
+
+public class ControleProduto {
+	private RepoProduto repoEmpresaCliente;
+
+	public ControleEmpresaCliente() {
+		repoEmpresaCliente = new RepoEmpresaCliente();
+	}
+}

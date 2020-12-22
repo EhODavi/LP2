@@ -1,0 +1,17 @@
+package RevisaoProva;
+
+public class VetorOrdenado {
+	Pessoa [] v = new Pessoa[10];
+	
+	boolean adiciona(Pessoa p) {
+		
+	}
+	void listar() {
+		for(int i = 0; i < v.length; i++) {
+			if(v[i] != null) {
+				System.out.println("Nome: " + v[i].getNome());
+				System.out.println("Idade: " + v[i].getIdade());
+			}
+		}
+	}
+}

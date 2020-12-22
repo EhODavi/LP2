@@ -1,0 +1,12 @@
+class PessoaFisica {
+	private String CPF;
+	public PessoaFisica(String CPF) {
+		
+	}
+	
+	public String getCPF() {
+		return this.CPF;
+	}
+	
+	
+}

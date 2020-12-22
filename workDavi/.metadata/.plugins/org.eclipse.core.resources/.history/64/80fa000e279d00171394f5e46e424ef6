@@ -1,0 +1,7 @@
+package listaExercicios05;
+
+public class TestaContainer {
+	public static void main(String[] args) {
+		ContainerDryBox dry = new ContainerDryBox("São Paulo","Santos", 5000, true);
+	}
+}

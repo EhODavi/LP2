@@ -1,0 +1,5 @@
+package br.cefetmg.banco.controle;
+
+public class ControleCliente {
+
+}

@@ -1,0 +1,74 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Banco {
+
+	private List<EmpresaCliente> empresaCliente = new ArrayList<EmpresaCliente>();
+
+	public boolean adicionar(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			this.empresaCliente.add(empresaCliente);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterar(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i).getCodigo() == empresaCliente.getCodigo()) {
+					this.empresaCliente.add(empresaCliente);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluir(int codigo) {
+		if (codigo > 0 && codigo < this.empresaCliente.size()) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i) != null) {
+					if (codigo == this.empresaCliente.get(i).getCodigo()) {
+						this.empresaCliente.remove(i);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente buscar(int codigo) {
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			if (empresaCliente[i] != null) {
+				if (codigo == empresaCliente[i].getCodigo()) {
+					return empresaCliente[i];
+				}
+			}
+		}
+		return null;
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente[] listar() {
+		EmpresaCliente[] c = new EmpresaCliente[Banco.numEmpresas];
+		int contador = 0;
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			c[contador] = this.empresaCliente[i];
+			contador++;
+		}
+		return c;
+	}
+
+	// ----------------------------------------------
+	public static int getNumEmpresas() {
+		return Banco.numEmpresas;
+	}
+}

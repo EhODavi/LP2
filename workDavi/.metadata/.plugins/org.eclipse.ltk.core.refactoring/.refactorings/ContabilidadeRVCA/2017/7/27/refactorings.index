@@ -1,0 +1,17 @@
+1499034823493	Rename type 'EmpresasClientes'
+1499038692697	Delete element
+1499039500369	Rename field 'cdCategoria'
+1499039517286	Rename field 'nomeCategoria'
+1499039529949	Rename field 'descricaoCategoria'
+1499039616177	Rename field 'nomeEmpresaCliente'
+1499039629379	Rename field 'cdEmpresaCliente'
+1499039653753	Rename field 'GeraCdEmpresaCliente'
+1499039827285	Rename field 'cdUnidade'
+1499039838528	Rename field 'nomeUnidade'
+1499039855224	Rename field 'descricaoUnidade'
+1499077765861	Delete element
+1499078770892	Delete element
+1499216914342	Delete elements
+1499217336632	Rename resource 'Produto (1).java'
+1499217348819	Rename resource 'Interface (1).java'
+1499217358508	Rename resource 'SistemaControle (1).java'

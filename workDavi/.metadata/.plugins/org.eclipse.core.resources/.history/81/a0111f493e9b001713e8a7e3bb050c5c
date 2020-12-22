@@ -1,0 +1,30 @@
+package br.cefetmg.RVCA.ui;
+
+import br.cefetmg.RVCA.controle.Sistema;
+
+public class UILogin {
+	private Sistema banco;
+	System.out.println("\n------   Tela de Login   ------\n");
+	System.out.println("Usuario: ");
+	usuario = scn.next();
+	System.out.println("Senha: ");
+	senha = scn.next();
+	if (banco.buscarLogin(usuario, senha) == true) {
+		System.out.println("\nLogin realizado com sucesso!!!\n");
+		logico = true;
+	} else {
+		System.out.println("\nDados Inválidos!!!\n");
+	}
+	break;
+case 2:
+	System.out.println("\n------   Nova Conta   ------\n");
+	System.out.println("Usuario: ");
+	usuario = scn.next();
+	System.out.println("Senha: ");
+	senha = scn.next();
+	if (banco.adicionarLogin(Login.newInstance(usuario, senha)) == true) {
+		System.out.println("\nLogin cadastrado com sucesso!!!\n");
+	} else {
+		System.out.println("\nDados Inválidos!!!\n");
+	}
+}

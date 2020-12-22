@@ -1,0 +1,22 @@
+package br.cefetmg.RVCA.ui;
+
+import java.util.Scanner;
+
+import br.cefetmg.RVCA.controle.Sistema;
+
+public class UIEmpresaCliente {
+	private static Scanner scn = new Scanner(System.in);
+	private Sistema banco;
+	
+	public UIEmpresaCliente() {
+		banco = Sistema.getInstance();
+	}
+	
+	System.out.println("\n------   Cadastrar um Empresa Cliente   ------\n");
+	EmpresaCliente cliente = lerCliente();
+	if (banco.adicionarEmpresa(cliente)) {
+		System.out.println("\nInsercao realizada com sucesso!!!\n");
+	} else {
+		System.out.println("\nFalha na inserção!!!\n");
+	}
+}

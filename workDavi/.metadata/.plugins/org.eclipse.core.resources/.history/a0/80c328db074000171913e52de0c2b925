@@ -1,0 +1,19 @@
+
+class Jogador {
+	int pontuacao;
+	String status;
+	ParDeDados parDados = new ParDeDados();
+	
+	void jogarDados() {
+		Se os dois dados obtiverem um número diferente de 1, os pontos são acumulados no total de pontos da
+
+		rodada do jogador:
+
+		1. Se o total de pontos da rodada for menor que 20, volte para o passo (a);
+
+		2. Se o total de pontos da rodada for maior ou igual a 20, acumule o total de pontos da rodada no total de
+
+		pontos do jogador e passe o controle dos dados para o outro jogador, que começa no passo (a)
+		parDados.dado1
+	}
+}

@@ -1,0 +1,66 @@
+package br.cefetmg.RVCA.ui;
+
+import java.util.Scanner;
+
+import br.cefetmg.RVCA.controle.EmpresaCliente;
+import br.cefetmg.RVCA.controle.Produto;
+import br.cefetmg.RVCA.controle.Sistema;
+
+public class UIProduto {
+	private static Scanner scn = new Scanner(System.in);
+	private Sistema banco;
+
+	public UIProduto() {
+		banco = Sistema.getInstance();
+	}
+
+	public void adicionarProduto(int codigo) {
+		System.out.println("\n------   Cadastrar um produto do Inventário do Estoque   ------\n");
+		Produto produto = lerProduto(codigo);
+		if (banco.adicionarProduto(produto)) {
+			System.out.println("\nInsercao realizada com sucesso!!!\n");
+		} else {
+			System.out.println("\nFalha na inserção!!!\n");
+		}
+	}
+
+	public void alterarProduto(int codigo) {
+		System.out.println("\n------   Alterar um Produto do Inventario do Estoque   ------\n");
+		boolean logico = listarInventario(banco.buscarEmpresa(codigo));
+		int codigoProduto;
+		if (logico != false) {
+			codigoProduto = lerCodigo();
+			Produto p = banco.buscarEmpresa(codigo).getInventario().buscarProduto(codigoProduto);
+			alterarProduto(p);
+			if (banco.buscarEmpresa(codigo).getInventario().alterarProduto(p)) {
+				System.out.println("\nAlteracao realizada com sucesso!!!\n");
+			} else {
+				System.out.println("\nFalha na alteracao!!!\n");
+			}
+		}
+	}
+
+	private Produto lerProduto(int codigo) { // OK
+		System.out.print("\nInforme o Nome do Produto: ");
+		String nome = scn.next();
+		System.out.print("Informe a Categoria do Produto: ");
+		String categoria = scn.next();
+		System.out.print("Informe a Unidade de Medida do Produto: ");
+		String unidadeMedida = scn.next();
+		System.out.print("Informe o Valor por Unidade de Medida do Produto: ");
+		double valorPorUnidadeMedida = scn.nextDouble();
+		System.out.print("Informe a Quantidade do Produto: ");
+		int quantidade = scn.nextInt();
+		EmpresaCliente empresa = banco.buscarEmpresa(codigo);
+		System.out.println();
+		Produto p = Produto.newInstance(categoria, valorPorUnidadeMedida, nome, quantidade, unidadeMedida, empresa);
+		return p;
+	}
+	
+	public int lerCodigo() { // OK
+		System.out.print("\nInforme o Codigo: ");
+		int codigo = scn.nextInt();
+		System.out.println();
+		return codigo;
+	}
+}

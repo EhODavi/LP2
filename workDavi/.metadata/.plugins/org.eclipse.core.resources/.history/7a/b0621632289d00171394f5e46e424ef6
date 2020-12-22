@@ -1,0 +1,38 @@
+package listaExercicios05;
+
+public class ContainerRefrigerado extends Container {
+	private double temperatura;
+	private TipoAlimentacao tipoAlimentacao;
+
+	public double getTemperatura() {
+		return temperatura;
+	}
+
+	public void setTemperatura(double temperatura) {
+		this.temperatura = temperatura;
+	}
+
+	public String getTipoAlimentacao() {
+		return tipoAlimentacao;
+	}
+
+	public void setTipoAlimentacao(String tipoAlimentacao) {
+		this.tipoAlimentacao = tipoAlimentacao;
+	}
+
+	private ContainerRefrigerado(String origem, String destino, double peso, double temperatura,
+			TipoAlimentacao tipoAlimentacao) {
+		super(origem, destino, peso);
+		this.temperatura = temperatura;
+		this.tipoAlimentacao = tipoAlimentacao;
+	}
+
+	public ContainerRefrigerado newInstance(String origem, String destino, double peso, double temperatura,
+			TipoAlimentacao tipoAlimentacao) {
+		if (origem != null && destino != null != peso > 0) {
+			return new ContainerDryBox(origem, destino, peso, transportaAnimais);
+		} else {
+			return null;
+		}
+	}
+}

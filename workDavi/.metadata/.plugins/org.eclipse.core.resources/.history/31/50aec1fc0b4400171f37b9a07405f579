@@ -1,0 +1,21 @@
+
+class Frase {
+	String frase = "";
+
+	void add(String frasinha) {
+		this.frase = this.frase + frasinha;
+	}
+
+	int temQuantasLetras(char letra) {
+		int numero = 0;
+		int i;
+		char c;
+		for (i = 0; i < frase.length(); i++) {
+			c = this.frase.charAt(i);
+			if (c == letra) {
+				numero++;
+			}
+		}
+		return numero;
+	}
+}

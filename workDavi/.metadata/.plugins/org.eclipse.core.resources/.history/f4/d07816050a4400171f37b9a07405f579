@@ -1,0 +1,9 @@
+
+class Aluno {
+	int numMatricula;
+	String nome;
+	String sobrenome;
+	String endereco;
+	String telefone;
+	Disciplina[] disciplinas = new Disciplica[12];
+}

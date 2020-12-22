@@ -1,0 +1,12 @@
+package RevisaoProva;
+
+public class VetorOrdenado {
+	Pessoa [] v = new Pessoa[10];
+	
+	boolean adiciona(Pessoa p) {
+		
+	}
+	void listar() {
+		
+	}
+}

@@ -1,0 +1,38 @@
+
+class Empresa {
+	String nome;
+	String cnpj;
+	Funcionario[] empregados;
+
+	boolean adiciona(Funcionario f) {
+		int contador = 0;
+		boolean logico = false;
+		this.empregados[contador] = f;
+		while (logico == false) { // IMPORTANTE!!!
+			if (this.empregados[contador] == null && this.empregados[contador].validaCPF() == true) {
+				this.empregados[contador] = f;
+				logico = true;
+			}
+			contador++;
+		}
+	}
+
+	void mostraEmpregados() {
+		for (int i = 0; i < this.empregados.length; i++) {
+			if (empregados[i] != null) { // IMPORTANTE!!!
+				System.out.println("Funcionário na posição: " + i);
+				System.out.println("Salário: " + empregados[i].salario);
+			}
+		}
+	}
+
+	boolean contem(Funcionario f) {
+		boolean logico = false;
+		for (int i = 0; i < empregados.length; i++) {
+			if (f == empregados[i]) {
+				logico = true;
+			}
+		}
+		return logico;
+	}
+}

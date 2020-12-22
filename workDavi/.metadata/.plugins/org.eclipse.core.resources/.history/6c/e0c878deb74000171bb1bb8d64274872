@@ -1,0 +1,4 @@
+
+class Colonia {
+	Bacteria[] bacs = new Bacteria[1000];
+}

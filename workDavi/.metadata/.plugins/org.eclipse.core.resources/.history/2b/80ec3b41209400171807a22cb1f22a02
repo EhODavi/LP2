@@ -1,0 +1,24 @@
+package RVCA;
+
+class Login {
+	private String usuario;
+	private String senha;
+
+	public static Login newInstance(String usuario, String senha) {
+		if (usuario != null && senha != null) {
+			return new Login(usuario, senha);
+		} else {
+			return null;
+		}
+	}
+
+	// Contrutor
+	EmpresaCliente(String CNPJ, String inscricaoEstadual, String nome, String telefone) {
+		this.CNPJ = CNPJ;
+		this.inscricaoEstadual = inscricaoEstadual;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.codigo = geraCodigo;
+		geraCodigo++;
+	}
+}

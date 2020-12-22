@@ -1,0 +1,19 @@
+package listaExercicios05;
+
+class EmpregadoDaFaculdade {
+	private String nome;
+	private double salario;
+
+	double getGastos() {
+		return this.salario;
+	}
+
+	String getInfo() {
+		return "nome: " + this.nome + " com salário " + this.salario;
+	}
+
+	public double getSalario() {
+		return this.salario;
+	}
+	// métodos de get, set e outros
+}

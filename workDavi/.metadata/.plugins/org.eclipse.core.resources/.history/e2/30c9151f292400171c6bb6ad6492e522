@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class ExAvaliativo 
+{
+	public static void main(String[] args)
+	{
+		double numero = 1;
+		int valor;
+		Scanner leia = new Scanner(System.in);
+		while(numero != 0)
+		{
+			System.out.println("Infome um numero: ");
+			numero = leia.nextDouble();
+			valor = resultado(numero);
+		}
+		System.out.println("Programa finalizado!!!");
+	}
+	public static int resultado(double numero)
+	{
+		int valor;
+		
+
+		return valor;
+	}
+}

@@ -1,0 +1,13 @@
+package listaExercicios05;
+
+public class SistemaContainer {
+	private Container[] conts;
+	
+	public SistemaContainer() {
+		conts = new Container[60];
+	}
+	
+	public void adiciona(Container c) {
+		
+	}
+}

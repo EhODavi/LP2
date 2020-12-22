@@ -1,0 +1,15 @@
+
+class TestaEmpresa {
+	public static void main(String[] args) {
+		Empresa empresa = new Empresa();
+		empresa.empregados = new Funcionario[10]; // IMPORTANTE!!!
+		
+		Dentro dele crie algumas instâncias de
+
+		Funcionario e passe para a empresa pelo método adiciona.
+		
+		
+
+		
+	}
+}

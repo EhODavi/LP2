@@ -1,0 +1,30 @@
+
+class Porta {
+	boolean aberta;
+	String cor;
+	double dimensaoX;
+	double dimensaoY;
+	double dimensaoZ;
+
+	void abre() {
+		System.out.println("A porta foi aberta.");
+		this.aberta = true;
+	}
+
+	void fecha() {
+		System.out.println("A porta foi fechada.");
+		this.aberta = false;
+	}
+
+	void pinta(String s) {
+		this.cor = s;
+	}
+
+	boolean estaAberta() {
+		if (this.aberta == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

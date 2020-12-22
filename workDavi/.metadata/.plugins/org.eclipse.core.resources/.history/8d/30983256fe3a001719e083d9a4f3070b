@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Exercicio02Depois {
+	public static void main(String[] args) {
+		int numero;
+		int coluna;
+		int linha;
+		Scanner leia = new Scanner(System.in);
+		System.out.println("Escolha um numero: ");
+		numero = leia.nextInt();
+		int[][] matriz = new int[numero][numero];
+		matriz = matriz(numero);
+		for (linha = 0; linha < matriz.length; linha++) {
+			for (coluna = 0; coluna < matriz[linha].length; coluna++) {
+				System.out.print(matriz[linha][coluna] + "\t");
+			}
+			System.out.print("\n");
+		}
+	}
+
+	public static int[][] matriz(int N) {
+		int[][] matrizGerada = new int[N][N];
+		int linha;
+		int coluna;
+		int contador = 1;
+
+		while (contador < N - 2) {
+			for (linha = 0; linha < N; linha++) {
+				for (coluna = 0; coluna < N; coluna++) {
+					matrizGerada[linha][coluna] = contador;
+				}
+			}
+			contador = contador + 1;
+		}
+		return matrizGerada;
+	}
+}

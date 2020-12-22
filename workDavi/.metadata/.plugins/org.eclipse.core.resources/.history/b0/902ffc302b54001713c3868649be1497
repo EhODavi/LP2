@@ -1,0 +1,11 @@
+
+class TestaAcessoComPegaSaldo {
+	public static void main(String args[]) {
+		Cliente carlos = new Cliente();
+		carlos.nome = "Carlos";
+		Conta c = new Conta(carlos);
+		System.out.println(c.getTitular());
+		c.deposita(1000);
+		System.out.println("Saldo: " + c.getSaldo());
+	}
+}

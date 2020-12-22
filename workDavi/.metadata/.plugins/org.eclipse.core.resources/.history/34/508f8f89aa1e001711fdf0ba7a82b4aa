@@ -1,0 +1,10 @@
+package registro.copy;
+
+
+// REGISTRO CONTA - PROGRAMAÇÃO ESTRUTURADA
+public class Conta {
+	int numero;
+	String nome;
+	double saldo;
+	double limite;
+}

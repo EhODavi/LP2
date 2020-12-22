@@ -1,0 +1,10 @@
+package listaExercicios05;
+
+class ContainerDryBox extends Container {
+	private boolean transportaAnimais;
+
+	public ContainerDryBox(int codigo, String origem, String destino, double peso, boolean transportaAnimais) {
+		super(codigo, origem, destino, peso);
+		this.transportaAnimais = transportaAnimais;
+	}
+}

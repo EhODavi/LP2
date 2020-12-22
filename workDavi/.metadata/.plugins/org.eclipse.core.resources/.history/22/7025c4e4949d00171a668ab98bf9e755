@@ -1,0 +1,39 @@
+package br.cefetmg.RVCA.ui;
+
+import java.util.Scanner;
+
+import br.cefetmg.RVCA.controle.EmpresaCliente;
+import br.cefetmg.RVCA.controle.Sistema;
+
+public class UIEmpresaCliente {
+	private static Scanner scn = new Scanner(System.in);
+	private Sistema banco;
+
+	public UIEmpresaCliente() {
+		banco = Sistema.getInstance();
+	}
+
+	public void adicionarEmpresa() {
+		System.out.println("\n------   Cadastrar um Empresa Cliente   ------\n");
+		EmpresaCliente cliente = lerCliente();
+		if (banco.adicionarEmpresa(cliente)) {
+			System.out.println("\nInsercao realizada com sucesso!!!\n");
+		} else {
+			System.out.println("\nFalha na inserção!!!\n");
+		}
+	}
+
+	private EmpresaCliente lerCliente() { // OK
+		System.out.println("\nInforme o nome da Empresa Cliente: ");
+		String nome = scn.next();
+		System.out.println("Informe o CNPJ da Empresa Cliente: ");
+		String cnpj = scn.next();
+		System.out.println("Informe a Inscricao Estadual da Empresa Cliente: ");
+		String inscricaoEstadual = scn.next();
+		System.out.println("Informe o Telefone da Empresa Cliente: ");
+		String fone = scn.next();
+		System.out.println();
+		EmpresaCliente c = EmpresaCliente.newInstance(cnpj, inscricaoEstadual, nome, fone);
+		return c;
+	}
+}

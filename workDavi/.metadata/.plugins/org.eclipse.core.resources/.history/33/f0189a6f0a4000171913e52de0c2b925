@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+//objetivo é atingir 100 pontos antes do seu adversário.
+class JogoPig {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		Pig jogao = new Pig();
+		Jogador vez = jogao.jogadores[0];
+		int posicao1;
+		int posicao2;
+		for (int i = 0; i < jogao.jogadores.length; i++) {
+			jogao.jogadores[i] = new Jogador();
+			jogao.jogadores[i].pontuacao = 0;
+			jogao.jogadores[i].status = "Normal";
+		}
+		while (jogao.jogadores[0].pontuacao < 100 || jogao.jogadores[1].pontuacao < 100) {
+			posicao1 = jogao.parDados.rolarDado1();
+			posicao2 = jogao.parDados.rolarDado2();
+		}
+		leia.close();
+	}
+}

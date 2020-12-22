@@ -1,0 +1,8 @@
+
+class Porta {
+	boolean aberta;
+	String cor;
+	double dimensaoX;
+	double dimensaoY;
+	double dimensaoZ;
+}

@@ -1,0 +1,58 @@
+
+public class Banco {
+	private String nome;
+	private Cliente[] clientes;
+	private int numClientes;
+	private static Banco instance = null;
+
+	// CONSTRUTOR
+	private Banco() {
+		// this.nome = nome;
+		clientes = new Cliente[10];
+	}
+
+	// PADRAO DE PROJETO SINGLETON - ERICH GAMMA
+	public static Banco getInstance() {
+		if (instance == null) {
+			instance = new Banco();
+		}
+		return instance;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public boolean adicionar(Cliente cliente) {
+		if (cliente != null && numClientes < clientes.length) {
+			clientes[numClientes] = cliente;
+			numClientes = numClientes + 1;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean alterar(Cliente cliente) {
+		return true;
+	}
+
+	public boolean excluir(String cpf) {
+		if (cpf != null) {
+			for (int i = 0; i < numClientes; i++) {
+				if (cpf.equals(clientes[i].getCpf())) {
+					
+				}
+			}
+		}
+		return true;
+	}
+
+	public Cliente[] listar() {
+		return clientes;
+	}
+}

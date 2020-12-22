@@ -1,0 +1,44 @@
+package listaExercicios05;
+
+class Sistema {
+	protected Container[] c = new Container[60];
+	protected int numContainer = 0;
+
+	public boolean adicionar(Container c) {
+		if (c != null && this.numContainer < this.c.length) {
+			this.c[numContainer] = c;
+			numContainer++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean excluir() {
+		for (int i = 0; i < this.numContainer; i++) {
+			for (int j = i; j < this.numContainer; j++) {
+				this.c[j] = this.c[j + 1];
+			}
+			this.numContainer--;
+			return true;
+		}
+		return false;
+	}
+
+	public Cliente[] listar() {
+		Cliente[] c = new Cliente[clientes.length];
+		for (int i = 0; i < numClientes; i++) {
+			c[i] = new Cliente(clientes[i]);
+		}
+		return c;
+	}verificarDryBox
+
+	public Cliente buscar(String cpf) {
+		for (int i = 0; i < numClientes; i++) {
+			if (clientes[i].getCpf().equals(cpf)) {
+				return new Cliente(clientes[i]);
+			}
+		}
+		return null;
+	}
+}

@@ -1,0 +1,5 @@
+
+class Pig {
+	Jogador[] jogadores = new Jogador[2];
+	ParDeDados parDados = new ParDeDados();
+}

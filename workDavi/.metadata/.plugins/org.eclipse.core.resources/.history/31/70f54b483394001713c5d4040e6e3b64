@@ -1,0 +1,23 @@
+package listaExercicios05;
+
+class Fornecedor extends Pessoa {
+	protected double creditoMax;
+	protected double valorEmDivida;
+	
+	public double obterSaldo() {
+		return this.creditoMax - this.valorEmDivida;
+	}
+	
+	public double getCreditoMax() {
+		return this.creditoMax;
+	}
+	public void setCreditoMax(double creditoMax) {
+		this.creditoMax = creditoMax;
+	}
+	public double getvalorEmDivida() {
+		return this.valorEmDivida;
+	}
+	public void setvalorEmDivida(double valorEmDivida) {
+		this.valorEmDivida = valorEmDivida;
+	}
+}

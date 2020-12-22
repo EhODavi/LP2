@@ -1,0 +1,30 @@
+
+class VetorOrdenado {
+	Pessoa[] v = new Pessoa[10];
+	int numPessoas;
+
+	boolean adiciona(Pessoa p) {
+		if (p != null && numPessoas < v.length) { // verificando se cabe
+			// localizar o ponto de inserção
+			int i = 0;
+			for (i = 0; i < numPessoas; i++) {
+				if (p.getIdade() < v[i].getIdade()) {
+					break;
+				}
+			}
+			// variável i sai com a posição do ponto de inserção
+			for (int j = numPessoas; j > i; j--) {
+				v[j] = v[j - 1];
+			}
+			v[i] = p;
+			numPessoas++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	void listar() {
+
+	}
+}

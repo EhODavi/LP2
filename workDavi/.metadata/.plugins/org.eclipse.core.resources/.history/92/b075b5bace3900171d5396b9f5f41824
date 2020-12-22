@@ -1,0 +1,14 @@
+
+class Casa {
+	String cor;
+	Porta porta1 = new Porta();
+	Porta porta2 = new Porta();
+	Porta porta3 = new Porta();
+	
+	void pinta(String s) { 
+		
+	}
+	int quantasPortasEstaoAbertas() {
+		
+	}
+}

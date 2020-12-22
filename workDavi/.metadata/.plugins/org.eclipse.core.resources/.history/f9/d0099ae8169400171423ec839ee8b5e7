@@ -1,0 +1,12 @@
+package listaExercicios05;
+
+public class TestaBanco {
+	public static void main(String[] args) {
+		Banco b = new Banco();
+		Conta c = new Conta();
+		Conta cc = new ContaCorrente(); // !!!
+		Conta cp = new ContaPoupanca();
+		Faça com que seu método main crie diversas contas, insira-as no Banco e depois, com um for, percorra
+		todas as contas do Banco para passá-las como argumento para o AtualizadorDeContas.
+	}
+}

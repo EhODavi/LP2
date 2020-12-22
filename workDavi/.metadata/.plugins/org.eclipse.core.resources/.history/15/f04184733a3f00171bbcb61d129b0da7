@@ -1,0 +1,18 @@
+/* Esta consome o dobro de seu peso em lixo por hora.
+De 3 em 3 horas cada bactéria se dividem em duas.
+Uma bactéria vive apenas 25 horas e depois morre.
+*/
+
+class Bacteria {
+	double tempoDeVida;
+	double lixoMetabolizado;
+	double peso = 0.00000000001;
+	boolean status;
+	
+	double quantoComeu() {
+		return this.lixoMetabolizado;
+	}
+	Deve ter métodos para retornar quanto lixo ela comeu, simular a passagem de uma hora
+
+	(reduzindo o seu tempo de vida) e retornar o tempo de vida restante.
+}

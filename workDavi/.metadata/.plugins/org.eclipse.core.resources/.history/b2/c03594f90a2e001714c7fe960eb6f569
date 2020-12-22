@@ -1,0 +1,13 @@
+package pacote;
+
+public class Hospitais // Registro dos Hospitais da região do Vale do Aço
+{
+	String nomeH;
+	String qualidadeH;
+	String ruaH;
+	String cidadeH;
+	String bairroH;
+	String telefoneH;
+	String distanciaH;
+	String tempoH;
+}

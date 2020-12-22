@@ -1,0 +1,36 @@
+
+class ExercicioPessoa {
+	private String nome;
+	private String sobrenome;
+	private String cpf;
+	private static int numeroPessoa;
+	
+	private ExercicioPessoa(String nome, String sobrenome, String cpf) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		ExercicioPessoa.numeroPessoa++; //IMPORTANTE
+	}
+	
+	public static ExercicioPessoa newInstance(String nome, String sobrenome, String cpf) {
+		if(nome != null && sobrenome != null && cpf != null) {
+			return new ExercicioPessoa(nome, sobrenome, cpf);
+		} else {
+			return null;
+		}
+	}
+	
+	
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public String getSobrenome() {
+		return this.sobrenome;
+	}
+	
+	public String getcpf() {
+		return this.cpf;
+	}
+}

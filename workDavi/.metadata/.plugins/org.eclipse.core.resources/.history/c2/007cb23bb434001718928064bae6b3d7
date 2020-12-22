@@ -1,0 +1,18 @@
+
+public class Endereco {
+	private String tipo;
+	private String logradouro; // rua, av, praça, travessa
+	private int numero;
+	private String cidade;
+	private String uf;
+	private String cep;
+
+	public Endereco(String tipo, String logradouro, int numero, String cidade, String uf, String cep) {
+		this.tipo = tipo;
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.uf = uf;
+		this.cep = cep;
+	}
+}

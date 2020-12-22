@@ -1,0 +1,22 @@
+
+class Cartao {
+	Conta c;
+	int senhaNumerica;
+	Debito[] relacaoDeDebitos;
+	
+	boolean debitar(double valor, String nome, int senha) {
+		if(senha == this.senhaNumerica && this.c.saca(valor) == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	void gerarFatura(int senha) {
+		if(senha == this.senhaNumerica) {
+			
+		}
+	}
+	imprime os nome do estabelecimento e
+
+	os valores das compras do cartão. 
+}

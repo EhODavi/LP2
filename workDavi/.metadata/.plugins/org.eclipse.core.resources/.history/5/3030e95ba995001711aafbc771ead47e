@@ -1,0 +1,14 @@
+package listaExercicios05;
+
+class Sistema {
+	protected Container[] c = new Container[60];
+	protected static numContainer
+	public boolean adicionar(Container c) {
+		if (c != null && this < this.c.length) {
+			clientes[numClientes] = cliente;
+			numClientes++;
+			return true;
+		} else
+			return false;
+	}
+}

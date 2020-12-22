@@ -1,0 +1,22 @@
+package listaExercicios05;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Banco {
+	List<String> nomes = new ArrayList<String>();
+
+	public void adiciona(Conta c) {
+		if (c != null) {
+
+		}
+	},
+
+	um método
+
+	public Conta pegaConta(int x) e outro public int
+	pegaTotalDeContas(),
+	
+	Faça com que seu método main crie diversas contas, insira-as no Banco e depois, com um for, percorra
+	todas as contas do Banco para passá-las como argumento para o AtualizadorDeContas.
+}

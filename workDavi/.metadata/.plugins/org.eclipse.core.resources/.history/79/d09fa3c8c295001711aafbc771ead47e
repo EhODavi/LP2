@@ -1,0 +1,395 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Interface {
+	private static Scanner scn = new Scanner(System.in);
+	private static Banco banco = new Banco();
+
+	public static void main(String[] args) {
+
+		int opcao = 0;
+		int opcaoCC = 0;
+		boolean logico;
+		String usuario;
+		String senha;
+
+		EmpresaCliente e1 = EmpresaCliente.newInstance("77773749000104", "558.814.812.977", "Riachuelo", "38474623");
+		banco.adicionarEmpresa(e1);
+		Produto p1 = Produto.newInstance("Roupa", 20, "Calça Jeans", 10, "Unidades");
+		banco.buscarEmpresa(1).getInventario().adicionarProduto(p1);
+		Produto p2 = Produto.newInstance("Roupa", 30, "Camisa Branca", 20, "Unidades");
+		banco.buscarEmpresa(1).getInventario().adicionarProduto(p2);
+		Produto p3 = Produto.newInstance("Roupa", 15, "Sapato Preto", 5, "Unidades");
+		banco.buscarEmpresa(1).getInventario().adicionarProduto(p3);
+		EmpresaCliente e2 = EmpresaCliente.newInstance("43473749000104", "558.814.543.977", "Saraiva", "38474824");
+		banco.adicionarEmpresa(e2);
+		Produto p4 = Produto.newInstance("Livro", 15, "Livro de Inglês", 5, "Unidades");
+		banco.buscarEmpresa(2).getInventario().adicionarProduto(p4);
+		Produto p5 = Produto.newInstance("Livro", 5, "Livro de Português", 10, "Unidades");
+		banco.buscarEmpresa(2).getInventario().adicionarProduto(p5);
+		Produto p6 = Produto.newInstance("Livro", 15, "Livro de Geografia", 5, "Unidades");
+		banco.buscarEmpresa(2).getInventario().adicionarProduto(p6);
+		EmpresaCliente e3 = EmpresaCliente.newInstance("76543749000104", "558.814.123.977", "Samsung", "38476623");
+		banco.adicionarEmpresa(e3);
+		Produto p7 = Produto.newInstance("Celular", 1150, "Nokia C2", 2, "Unidades");
+		banco.buscarEmpresa(3).getInventario().adicionarProduto(p7);
+		Produto p8 = Produto.newInstance("Celular", 1500, "Nexus 5x", 2, "Unidades");
+		banco.buscarEmpresa(3).getInventario().adicionarProduto(p8);
+		Produto p9 = Produto.newInstance("Celular", 2000, "Galaxy S8", 2, "Unidades");
+		banco.buscarEmpresa(3).getInventario().adicionarProduto(p9);
+		Login loginDavi = Login.newInstance("Davi", "123");
+		banco.adicionarLogin(loginDavi);
+		Login loginNeres = Login.newInstance("Andre", "456");
+		banco.adicionarLogin(loginNeres);
+		logico = false;
+		// ----------------------------------------------
+		do {
+			System.out.println("\n------   RVCA Contabilidade   ------");
+			System.out.println("1 - Logar");
+			System.out.println("2 - Nova Conta");
+			opcao = scn.nextInt();
+
+			switch (opcao) {
+			case 1:
+				System.out.println("Tela de Login:");
+				System.out.print("Usuario: ");
+				usuario = scn.next();
+				System.out.println();
+				System.out.print("Senha: ");
+				senha = scn.next();
+				System.out.println();
+				if (banco.buscarLogin(usuario, senha) == true) {
+					System.out.println("Login realizado com sucesso!!!");
+					logico = true;
+				} else {
+					System.out.println("Dados Inválidos!!!");
+				}
+				break;
+			case 2:
+				System.out.println("Nova Conta:");
+				System.out.print("Usuario: ");
+				usuario = scn.next();
+				System.out.println();
+				System.out.print("Senha: ");
+				senha = scn.next();
+				System.out.println();
+
+				if (banco.adicionarLogin(Login.newInstance(usuario, senha)) == true) {
+					System.out.println("Login cadastrado com sucesso!!!");
+				} else {
+					System.out.println("Dados Inválidos!!!");
+				}
+				break;
+			default:
+				System.out.println("Opcao inválida!!!");
+			}
+		} while (logico = false);
+
+		do {
+			System.out.println("\n------   RVCA Contabilidade   ------");
+			System.out.println("1 - Entrar como Contador");
+			System.out.println("2 - Entrar como Cliente");
+			System.out.println("0 - Sair");
+			opcao = scn.nextInt();
+
+			switch (opcao) {
+			case 0:
+				System.out.println("Até mais");
+				break;
+			case 1:
+				do {
+					System.out.println("\n------   RVCA Contabilidade   ------");
+					System.out.println("1 - Cadastrar uma Empresa Cliente");
+					System.out.println("2 - Alterar uma Empresa Cliente");
+					System.out.println("3 - Excluir uma Empresa Cliente");
+					System.out.println("4 - Listar as Empresas Clientes");
+					System.out.println("0 - Retornar ao Menu Principal");
+					opcaoCC = scn.nextInt();
+					switch (opcaoCC) {
+					case 1:
+						System.out.println("Cadastrar uma Empresa Cliente:");
+						EmpresaCliente cliente = lerCliente();
+						if (banco.adicionarEmpresa(cliente)) {
+							System.out.println("Insercao realizada com sucesso!!!");
+						} else {
+							System.out.println("Falha na inserção!!!");
+						}
+						break;
+					case 2:
+						System.out.println("Alterar uma Empresa Cliente:");
+						List<EmpresaCliente> clientes = banco.listarEmpresa();
+						listarEmpresa(clientes);
+						int codigo = lerCodigo();
+						EmpresaCliente c = banco.buscarEmpresa(codigo);
+						alterarEmpresa(c);
+						if (banco.alterarEmpresa(c)) {
+							System.out.println("Alteracao realizada com sucesso!!!");
+						} else {
+							System.out.println("Falha na alteracao!!!");
+						}
+						break;
+					case 3:
+						System.out.println("Excluir uma Empresa Cliente:");
+						clientes = banco.listarEmpresa();
+						listarEmpresa(clientes);
+						codigo = lerCodigo();
+						if (banco.excluirEmpresa(codigo)) {
+							System.out.println("Exclusão realizada com sucesso!!!");
+						} else {
+							System.out.println("Falha na exclusao!!!");
+						}
+						break;
+					case 4:
+						System.out.println("Listar as Empresas Clientes:");
+						clientes = banco.listarEmpresa();
+						listarEmpresaInventario(clientes);
+						break;
+					default:
+						System.out.println("Opcao inválida!!!");
+					}
+				} while (opcaoCC != 0);
+				break;
+			case 2:
+				List<EmpresaCliente> clientes = banco.listarEmpresa();
+				listarEmpresa(clientes);
+				int codigo = lerCodigo();
+				if (codigo > 0 && codigo <= clientes.size()) {
+					do {
+						System.out
+								.println("\n------   " + banco.buscarEmpresa(codigo).getNome() + "   ------");
+						System.out.println("1 - Cadastrar um produto do Inventário do Estoque");
+						System.out.println("2 - Alterar um produto do Inventário do Estoque");
+						System.out.println("3 - Excluir um produto do Inventário do Estoque");
+						System.out.println("4 - Listar o Inventário do Estoque");
+						System.out.println("0 - Retornar para o Menu Principal");
+						opcaoCC = scn.nextInt();
+						switch (opcaoCC) {
+						case 1:
+							System.out.println("Cadastrar um produto do Inventário do Estoque:");
+							Produto produto = lerProduto();
+							if (banco.buscarEmpresa(codigo).getInventario().adicionarProduto(produto)) {
+								System.out.println("Insercao realizada com sucesso!!!");
+							} else {
+								System.out.println("Falha na inserção!!!");
+							}
+							break;
+						case 2:
+							System.out.println("Alterar um produto do Inventário do Estoque:");
+							listarInventario(banco.buscarEmpresa(codigo));
+							int codigoProduto = lerCodigo();
+							Produto p = banco.buscarEmpresa(codigo).getInventario().buscarProduto(codigoProduto);
+							alterarProduto(p);
+							if (banco.buscarEmpresa(codigo).getInventario().alterarProduto(p)) {
+								System.out.println("Alteracao realizada com sucesso!!!");
+							} else {
+								System.out.println("Falha na alteracao!!!");
+							}
+							break;
+						case 3:
+							System.out.println("Excluir um produto do Inventário do Estoque:");
+							listarInventario(banco.buscarEmpresa(codigo));
+							codigoProduto = lerCodigo();
+							if (banco.buscarEmpresa(codigo).getInventario().excluirProduto(codigoProduto)) {
+								System.out.println("Exclusão realizada com sucesso!!!");
+							} else {
+								System.out.println("Falha na exclusao!!!");
+							}
+							break;
+						case 4:
+							System.out.println("Listar o Inventário do Estoque:");
+							listarInventario(banco.buscarEmpresa(codigo));
+							break;
+						default:
+							System.out.println("Opcao invalida!");
+						}
+					} while (opcaoCC != 0);
+				} else {
+					System.out.println("Opção inválida!");
+				}
+				break;
+			default:
+				System.out.println("Opcao inválida!");
+			}
+		} while (opcao != 0);
+	}
+
+	private static EmpresaCliente lerCliente() { // OK
+		System.out.println("Informe o nome da Empresa Cliente: ");
+		String nome = scn.next();
+		System.out.println("Informe o CNPJ da Empresa Cliente: ");
+		String cnpj = scn.next();
+		System.out.println("Informe a Inscricao Estadual da Empresa Cliente: ");
+		String inscricaoEstadual = scn.next();
+		System.out.println("Informe o Telefone da Empresa Cliente: ");
+		String fone = scn.next();
+		EmpresaCliente c = EmpresaCliente.newInstance(cnpj, inscricaoEstadual, nome, fone);
+		return c;
+	}
+
+	// -------------------------------------------------------
+	private static Produto lerProduto() { // OK
+		System.out.print("Informe o Nome do Produto: ");
+		String nome = scn.next();
+		System.out.print("Informe a Categoria do Produto: ");
+		String categoria = scn.next();
+		System.out.print("Informe a Unidade de Medida do Produto: ");
+		String unidadeMedida = scn.next();
+		System.out.print("Informe o Valor por Unidade de Medida do Produto: ");
+		double valorPorUnidadeMedida = scn.nextDouble();
+		System.out.print("Informe a Quantidade do Produto: ");
+		int quantidade = scn.nextInt();
+		Produto p = Produto.newInstance(categoria, valorPorUnidadeMedida, nome, quantidade, unidadeMedida);
+		return p;
+	}
+
+	// --------------------------------------------------------
+	private static void listarEmpresa(List<EmpresaCliente> clientes) { // OK
+		if (clientes == null || clientes.size() == 0) {
+			System.out.println("Não há Empresas Clientes Cadastradas");
+		} else {
+			for (int i = 0; i < clientes.size(); i++) {
+				System.out.println("Codigo da Empresa Cliente: " + clientes.get(i).getCodigo());
+				System.out.println("Nome da Empresa Cliente: " + clientes.get(i).getNome());
+				System.out.println("CNPJ da Empresa Cliente: " + clientes.get(i).getCNPJ());
+				System.out.println("Inscricão Estadual da Empresa Cliente: " + clientes.get(i).getInscricaoEstadual());
+				System.out.println("Telefone da Empresa Cliente: " + clientes.get(i).getTelefone());
+				System.out.println("--------------------------------------------------");
+			}
+		}
+	}
+
+	// -----------------------------------------------------------
+	private static void listarEmpresaInventario(List<EmpresaCliente> clientes) { // OK
+		if (clientes == null || clientes.size() == 0) {
+			System.out.println("Não há Empresas Clientes Cadastradas");
+		} else {
+			for (int i = 0; i < clientes.size(); i++) {
+				System.out.println("Codigo da Empresa Cliente: " + clientes.get(i).getCodigo());
+				System.out.println("Nome da Empresa Cliente: " + clientes.get(i).getNome());
+				System.out.println("CNPJ da Empresa Cliente: " + clientes.get(i).getCNPJ());
+				System.out.println("Inscricão Estadual da Empresa Cliente: " + clientes.get(i).getInscricaoEstadual());
+				System.out.println("Telefone da Empresa Cliente: " + clientes.get(i).getTelefone());
+				listarInventario(clientes.get(i));
+				System.out.println("--------------------------------------------------");
+			}
+		}
+	}
+
+	// -----------------------------------------------------------
+
+	private static int lerCodigo() { // OK
+		System.out.print("Informe o Codigo: ");
+		int codigo = scn.nextInt();
+		return codigo;
+	}
+
+	// -------------------------------------------------------------
+	private static void alterarProduto(Produto p) { //OK
+		int opcao;
+
+		do {
+			System.out.println("\nCodigo do Produto: " + p.getCodigo());
+			System.out.println("1 - Nome do Produto: " + p.getNome());
+			System.out.println("2 - Unidade de Medida do Produto: " + p.getUnidadeMedida());
+			System.out.println("3 - Valor Unitário do Produto: R$" + p.getValorPorUnidadeMedida());
+			System.out.println("4 - Quantidade do Produto: " + p.getQuantidade());
+			System.out.print("Escolha qual campo deseja alterar (0 - Sair): ");
+			opcao = scn.nextInt();
+
+			switch (opcao) {
+			case 1:
+				System.out.print("Novo Nome do Produto: ");
+				String nome = scn.next();
+				p.setNome(nome);
+				break;
+			case 2:
+				System.out.print("Nova Unidade de Medida do Produto: ");
+				String unidadeMedida = scn.next();
+				p.setUnidadeMedida(unidadeMedida);
+				break;
+			case 3:
+				System.out.print("Novo Valor Unitário do Produto: ");
+				double valorPorUnidadeMedida = scn.nextDouble();
+				p.setValorPorUnidadeMedida(valorPorUnidadeMedida);
+				break;
+			case 4:
+				System.out.print("Nova Quantidade do Produto: ");
+				int quantidade = scn.nextInt();
+				p.setQuantidade(quantidade);
+				break;
+			default:
+				break;
+			}
+		} while (opcao != 0);
+	}
+
+	// ------------------------------------------------------------
+	private static void alterarEmpresa(EmpresaCliente c) { // OK
+		int opcao;
+
+		do {
+			System.out.println("\nCodigo da Empresa Cliente: " + c.getCodigo());
+			System.out.println("1 - CNPJ da Empresa Cliente: " + c.getCNPJ());
+			System.out.println("2 - Nome da Empresa Cliente: " + c.getNome());
+			System.out.println("3 - Inscricão Estadual da Empresa Cliente: " + c.getInscricaoEstadual());
+			System.out.println("4 - Telefone da Empresa Cliente: " + c.getTelefone());
+			System.out.print("Escolha qual campo deseja alterar (0 - Sair): ");
+			opcao = scn.nextInt();
+
+			switch (opcao) {
+			case 1:
+				System.out.print("Novo CNPJ da Empresa Cliente: ");
+				String cnpj = scn.next();
+				c.setCNPJ(cnpj);
+				break;
+			case 2:
+				System.out.print("Novo Nome da Empresa Cliente: ");
+				String nome = scn.next();
+				c.setNome(nome);
+				break;
+			case 3:
+				System.out.print("Nova Inscricao Estadual da Empresa Cliente: ");
+				String inscricaoEstadual = scn.next();
+				c.setInscricaoEstadual(inscricaoEstadual);
+				break;
+			case 4:
+				System.out.print("Novo Telefone da Empresa Cliente: ");
+				String telefone = scn.next();
+				c.setTelefone(telefone);
+				break;
+			default:
+				break;
+			}
+
+		} while (opcao != 0);
+	}
+
+	private static void listarInventario(EmpresaCliente inventarioEmpresa) { // OK
+		System.out.println("Inventário do Estoque:");
+		if (inventarioEmpresa.getInventario() == null || inventarioEmpresa.getInventario().listarProduto() == null) {
+			System.out.println("Não há Produtos Cadastrados!!!");
+		} else {
+			for (int i = 0; i < inventarioEmpresa.getInventario().listarProduto().size(); i++) {
+				System.out.println(
+						"Codigo do Produto: " + inventarioEmpresa.getInventario().listarProduto().get(i).getCodigo());
+				System.out.println(
+						"Nome do Produto: " + inventarioEmpresa.getInventario().listarProduto().get(i).getNome());
+				System.out.println(
+						"Categoria: " + inventarioEmpresa.getInventario().listarProduto().get(i).getCategoria());
+				System.out.println("Unidade de Medida do Produto: "
+						+ inventarioEmpresa.getInventario().listarProduto().get(i).getUnidadeMedida());
+				System.out.println("Valor Unitário do Produto: R$"
+						+ inventarioEmpresa.getInventario().listarProduto().get(i).getValorPorUnidadeMedida());
+				System.out.println("Quantidade do Produto: "
+						+ inventarioEmpresa.getInventario().listarProduto().get(i).getQuantidade() + " "
+						+ inventarioEmpresa.getInventario().listarProduto().get(i).getUnidadeMedida());
+				System.out.println("Valor Total do Produto: R$"
+						+ inventarioEmpresa.getInventario().listarProduto().get(i).getValorTotal());
+				System.out.println();
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+
+class TesteCartao {
+	public static void main(String[] args) {
+		
+		Conta conta = new Conta();
+		conta.limite = 1000;
+		conta.numero = 007;
+		conta.saldo = 1500;
+	}
+}

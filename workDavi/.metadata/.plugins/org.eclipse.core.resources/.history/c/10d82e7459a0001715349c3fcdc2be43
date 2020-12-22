@@ -1,0 +1,16 @@
+package br.cefetmg.RVCA.dados;
+
+import br.cefetmg.RVCA.controle.Produto;
+
+public class RepoProduto {
+	
+	
+	public boolean adicionarProduto(Produto produto) {
+		if (produto != null) {
+			this.produtos.add(produto);
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

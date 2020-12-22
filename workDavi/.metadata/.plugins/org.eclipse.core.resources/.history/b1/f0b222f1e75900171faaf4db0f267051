@@ -1,0 +1,10 @@
+
+public class Questao3 {
+	public static void main(String[] args) {
+		VetorOrdenado vo = new VetorOrdenado();
+		vo.adiciona(new Pessoa("Joao", 8));
+		vo.adiciona(new Pessoa("Maria", 19));
+		vo.adiciona(new Pessoa("Paulo", 30));
+		vo.adiciona(new Pessoa("Ze", 15));
+	}
+}

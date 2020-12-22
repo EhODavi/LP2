@@ -1,0 +1,80 @@
+
+class Funcionario {
+	String nome;
+	String departamento;
+	double salario;
+	String dataEntrada;
+	String RG;
+	String cpf;
+
+	void recebeAumento(double valor) {
+		this.salario = this.salario + valor;
+	}
+
+	double calculaGanhoAnual() {
+		double valorAnual = this.salario * 12;
+		return valorAnual;
+	}
+
+	void mostra() {
+		System.out.println("Nome: " + this.nome);
+		System.out.println("Departamento: " + this.departamento);
+		System.out.println("Salario: " + this.salario);
+		System.out.println("Data de Entrada: " + this.dataEntrada);
+		System.out.println("RG: " + this.RG);
+		System.out.println("Ganho Anual " + this.calculaGanhoAnual());
+	}
+
+	boolean validaCPF() {
+		int acumulador = 0;
+		char c;
+		int contador = 10;
+
+		if (this.cpf.length() != 11 && this.cpf.length() != 14) {
+			return false;
+		} else {
+			for (int i = 0; i < this.cpf.length() - 2; i++) { // Testando
+																// Primeiro
+																// Digito
+																// Verificador!
+				c = this.cpf.charAt(i);
+				if (Character.isDigit(c) == true) {
+					acumulador = acumulador + (c * contador);
+				}
+				contador = contador - 1;
+			}
+			acumulador = acumulador % 11;
+			if (acumulador < 2) {
+				acumulador = 0;
+			} else {
+				acumulador = 11 - acumulador;
+			}
+			c = this.cpf.charAt(this.cpf.length() - 2);
+			if (acumulador != c) {
+				return false;
+			}
+			acumulador = 11;
+			for (int i = 0; i < this.cpf.length() - 1; i++) { // Testando
+																// Segundo
+																// Digito
+																// Verificador!
+				c = this.cpf.charAt(i);
+				if (Character.isDigit(c) == true) {
+					acumulador = acumulador + (c * contador);
+				}
+				contador = contador - 1;
+			}
+			acumulador = acumulador % 11;
+			if (acumulador < 2) {
+				acumulador = 0;
+			} else {
+				acumulador = 11 - acumulador;
+			}
+			c = this.cpf.charAt(this.cpf.length() - 1);
+			if (acumulador != c) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

@@ -1,0 +1,24 @@
+package br.cefetmg.RVCA.controle;
+
+import br.cefetmg.RVCA.dados.RepoLogin;
+import br.cefetmg.banco.controle.Cliente;
+import br.cefetmg.banco.dados.RepoCliente;
+
+public class ControleLogin {
+	private RepoLogin repoLogin;
+	
+	public ControleLogin() {
+		repoLogin = new RepoLogin();
+	}
+	
+	public boolean Cliente buscarLogin(String cpf) {
+		if (usuario != null && senha != null) {
+			for (int i = 0; i < this.login.size(); i++) {
+				if (this.login.get(i).getUsuario().equals(usuario) && this.login.get(i).getSenha().equals(senha)) {
+					return true;
+				}
+			}
+		}
+		return repoCliente.buscar(cpf);
+	}
+}

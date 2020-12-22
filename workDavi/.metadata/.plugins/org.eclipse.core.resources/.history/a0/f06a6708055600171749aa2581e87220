@@ -1,0 +1,67 @@
+import java.util.Random;
+
+public class Protozoario {
+	private int id; // individualidade
+	public int[] genotipo;
+
+	private static int geraId;
+	private static Random rnd = new Random();
+	
+	// construtor
+	public Protozoario() {
+		geraId++;
+		id = geraId;
+		genotipo = new int[10];
+		for (int i = 0; i < genotipo.length; i++) {
+			genotipo[i] = rnd.nextInt(4);
+		}
+	}
+
+	private Protozoario(int[] genotipo) {
+		geraId++;
+		id = geraId;
+		this.genotipo = genotipo;
+	}
+
+	// método fábrica
+	public static Protozoario newInstance(int[] genotipo) {
+		if (genotipo != null && genotipo.length == 10) {
+			for (int i = 0; i < genotipo.length; i++) {
+				if (genotipo[i] < 0 || genotipo[i] > 3)
+					return null;
+			}
+			return new Protozoario(genotipo);
+		} else
+			return null;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+	public Protozoario getClone() { // replicação
+		Protozoario f = new Protozoario(this.genotipo);
+		return f;
+	}
+
+	@Override
+	public String toString() { // chamado automaticamente pelo print(ln)
+		String s = "[";
+		for (int i = 0; i < genotipo.length; i++) {
+			s += " " + String.valueOf(genotipo[i]);
+		}
+		s += " ]";
+
+		return String.valueOf(id) + " - " + s;
+	}
+	
+	public Protozoario mate(Protozoario outro) {
+		int aleatorio;
+		for(int i = 0; i < this.genotipo.length; i++) {
+			
+		}
+	}
+	private void mutate() {
+		
+	}
+}

@@ -1,0 +1,34 @@
+
+class Casa {
+	String cor;
+	int totalDePortas;
+	Porta[] portas;
+
+	void pinta(String s) {
+		this.cor = s;
+	}
+
+	int quantasPortasEstaoAbertas() {
+		int numero = 0;
+
+		if (porta1.aberta == true) {
+			numero = numero + 1;
+		}
+		if (porta2.aberta == true) {
+			numero = numero + 1;
+		}
+		if (porta3.aberta == true) {
+			numero = numero + 1;
+		}
+
+		return numero;
+	}
+
+	void adicionaPorta(Porta p) {
+		for(int i = 0; i < portas.length; i++) {
+			
+		}
+	}
+
+	int totalDePortas()
+}

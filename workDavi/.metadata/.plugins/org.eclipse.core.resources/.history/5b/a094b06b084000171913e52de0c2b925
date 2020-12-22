@@ -1,0 +1,10 @@
+
+class Jogador {
+	int pontuacao;
+	String status;
+	ParDeDados parDados = new ParDeDados();
+	
+	void jogarDados() {
+
+	}
+}

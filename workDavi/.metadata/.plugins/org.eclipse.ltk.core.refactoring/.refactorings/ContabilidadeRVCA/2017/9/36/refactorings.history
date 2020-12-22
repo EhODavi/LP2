@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;RVCA.SistemaControle.java&apos; to &apos;Banco.java&apos;&#x0D;&#x0A;- Original project: &apos;ContabilidadeRVCA&apos;&#x0D;&#x0A;- Original element: &apos;RVCA.SistemaControle.java&apos;&#x0D;&#x0A;- Renamed element: &apos;RVCA.Banco.java&apos;" description="Rename compilation unit &apos;SistemaControle.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;RVCA{SistemaControle.java" name="Banco.java" references="false" stamp="1504483470760" version="1.0"/>
+</session>

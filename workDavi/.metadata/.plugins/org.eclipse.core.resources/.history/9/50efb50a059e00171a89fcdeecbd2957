@@ -1,0 +1,11 @@
+package listaExercicios05;
+
+class TestaAdministrador {
+	public static void main(String[] args) {
+		Administrador a = Administrador.newInstance("Davi", 16, 60,"123", 12, 1000, 0.01, 1000);
+		a.setAjudasDeCusto(1000);
+		a.setIR(0.01);
+		a.setSalarioBase(1000);
+		System.out.println(a.calcularSalario());
+	}
+}

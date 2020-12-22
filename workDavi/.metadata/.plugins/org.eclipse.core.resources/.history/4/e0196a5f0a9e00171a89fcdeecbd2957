@@ -1,0 +1,80 @@
+package listaExercicios05;
+
+public class Sistema {
+	private Container[] conts;
+	private int fim;
+	private static Sistema instance;
+
+	public Sistema() {
+		conts = new Container[60];
+	}
+
+	// Singleton
+	public static Sistema getInstance() {
+		if (instance == null) {
+			instance = new Sistema();
+		}
+		return instance;
+	}
+
+	public boolean adiciona(Container c) {
+		if (c != null && fim < conts.length) { // Verificando se é possível
+												// inicializar
+			// Instanceof = verifica o tipo do objeto para qual a referencia
+			// aponta
+			if (c instanceof ContainerDryBox) {
+				conts[fim] = c;
+			} else {
+				int numR = 0;
+				while (conts[numR] != null && conts[numR] instanceof ContainerRefrigerado) {
+					numR++;
+				}
+				for (int i = fim; i > numR; i--) {
+					conts[i] = conts[i - 1];
+				}
+				conts[numR] = c;
+			}
+			fim++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void despachar() {
+		for (int i = 0; i < fim; i++) {
+			conts[i] = conts[i + 1];
+		}
+	}
+
+	public Container[] listar() {
+		Container[] c = new Container[fim + 1];
+		for (int i = 0; i < fim; i++) {
+			c[i] = conts[i];
+		}
+		return c;
+	}
+
+	public int numDryBox() {
+		int numeroContainers = 0;
+		for (int i = 0; i < fim; i++) {
+			if (conts[i] instanceof ContainerDryBox == true) {
+				numeroContainers++;
+			}
+		}
+		return numeroContainers;
+	}
+
+	public Container buscarContainer(int identificador) {
+		if (identificador > 0) {
+			for (int i = 0; i < fim; i++) {
+				if (conts[i] != null) {
+					if (conts[i].id == identificador) {
+						return conts[i];
+					}
+				}
+			}
+		}
+		return null;
+	}
+}

@@ -1,0 +1,167 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+class Hospitais
+{
+	String nomeH;
+	String qualidadeH;
+	String ruaH;
+	String cidadeH;
+	String bairroH;
+	String telefoneH;
+	String distanciaH;
+	String tempoH;
+}
+class Doadores
+{
+	String nomeD;
+	String sexoD;
+	String idadeD;
+	String tipoSanguineoD;
+	String orgaoD;
+	String hospitalD;
+	String statusD;
+}
+public class DoacaoOrgaos 
+{
+	public static void main(String[] args)
+	{
+		int quantidade;
+		int opcao = 0;
+		int linha;
+		int coluna;
+		Hospitais[] vetorHospitais = new Hospitais[10];
+		Doadores[] vetorDoadores = new Doadores[100];
+		String teclado;
+		FileReader caminhoHospitais = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Hospitais.txt");
+		FileReader caminhoDoadores = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+		Scanner leia = new Scanner(System.in);
+		
+		quantidade = carregarDoadores(caminhoDoadores);
+		preencherHospitais(caminhoHospitais,vetorHospitais);
+		preencherDoadores(caminhoDoadores,vetorDoadores);
+				
+		System.out.print("Seja bem-vindo ao novo programa de doações de orgãos da região do Vale do Aço \n\n");
+		while (opcao != 3)
+		{
+			System.out.print("Escolha o que você deseja: \n");
+			System.out.print("1) Doar orgãos \n");
+			System.out.print("2) Entrar na fila de espera para receber orgãos \n");
+			System.out.print("3) Sair \n\n");
+
+			System.out.print("Escolha uma opção: \n");
+			opcao = leia.nextInt();
+
+			switch (opcao)
+			{
+				case 1:
+					if(quantidade < 100)
+					{
+						adicionarDoadorEspera(vetorDoadores, quantidade);	
+						System.out.print("Cadastro feito com sucesso! \n");		 		
+					}
+					else
+					{
+						System.out.print("\nA memória do programa está cheia\n");
+					}
+
+					System.out.print("\nPressione qualquer tecla para continuar...\n");	
+					teclado = leia.next();			
+					break;
+					
+				case 2:
+					if(quantidade < 100)
+					{
+						vetorDoadores[quantidade] = new Doadores();
+						vetorDoadores[quantidade].statusD = "Espera";
+						adicionarDoadorEspera(vetorDoadores, quantidade)	;
+						System.out.print("Cadastro feito com sucesso! \n");	 		
+					}
+					else
+					{
+						System.out.print("\nA memória do programa está cheia\n");
+					}
+					System.out.print("\nPressione qualquer tecla para continuar...\n");
+					teclado = leia.next();			
+					break;
+					
+				case 3:
+					salvarArquivo(caminhoDoadores, vetorDoadores, quantidade);
+					System.out.print("Sistema encerrado com sucesso! \n\n");
+					break;
+					
+				default:
+					System.out.print("Opção Inválida!\n\n");
+			}
+		}
+		System.out.print("Obrigado por utilizar o nosso programa!!!");
+		leia.close();
+	}
+	public static int carregarDoadores() //Essa função verifica se o arquivo esta cheio 
+	{
+		int quantidade = 0; 
+		int coluna;
+		String linha;
+		
+		try 
+		{
+			FileReader caminhoDoadores = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+			BufferedReader lerArquivo = new BufferedReader(caminhoDoadores);
+
+			for (coluna = 0; coluna < 100; coluna++)
+			{
+				linha = lerArquivo.readLine();
+				if (linha.length() > 0)
+				{
+					quantidade = quantidade + 1;
+				}	
+			}
+			arquivo.close();
+		} 
+		catch (IOException e) 
+		{
+			System.err.printf("Erro na abertura do arquivo: %s.\n",
+					e.getMessage());
+		}
+		System.out.println();
+		return quantidade;
+	}
+	public static ()// funcao, vou coloca-la ainda
+	{
+		int posicaoInicio;
+		int posicaoFim;
+		String parteLinha;
+		
+		try 
+		{
+			FileReader arquivo = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+			BufferedReader lerArquivo = new BufferedReader(arquivo);
+			String linha = lerArquivo.readLine(); 
+			while (linha != null) 
+			{
+				posicaoInicio = 0;
+				posicaoFim = 0;
+				while(posicaoFim != -1)
+				{
+					posicaoFim = linha.indexOf(";",posicaoInicio);
+					if(posicaoFim != -1)
+					{
+						parteLinha = linha.substring(posicaoInicio, posicaoFim);
+						System.out.printf("%s\n", parteLinha);
+						posicaoInicio = posicaoFim + 1;
+					}
+				}
+				linha = lerArquivo.readLine();
+			}
+	  arquivo.close();
+		} 
+		catch (IOException e) 
+		{
+			System.err.printf("Erro na abertura do arquivo: %s.\n",
+					e.getMessage());
+		}
+		System.out.println();
+	}
+}

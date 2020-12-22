@@ -1,0 +1,20 @@
+
+class Funcionario {
+	private String nome;
+	private String departamento;
+	private double salario;
+	private String dataEntrada;
+	private String RG;
+	
+	public String getNome() {
+		return this.nome;
+	}
+	public void recebeAumento(double valor) {
+		this.salario = this.salario + valor;
+	}
+
+	public double getGanhoAnual() {
+		double valorAnual = this.salario * 12;
+		return valorAnual;
+	}
+}

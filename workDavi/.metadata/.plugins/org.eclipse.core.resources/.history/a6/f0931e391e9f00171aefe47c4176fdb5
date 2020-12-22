@@ -1,0 +1,14 @@
+package RevisaoProva;
+
+public class Filme {
+	private int codigoUnico;
+	private String nome;
+	private String diretor;
+	private String[] atores;
+	private int duracao;
+	private static int geraCodigo;
+	
+	private Filme() {
+		
+	}
+}

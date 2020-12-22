@@ -1,0 +1,11 @@
+
+class Empresa {
+	String nome;
+	String cnpj;
+	Funcionario[] empregados;
+	
+	void adiciona(Funcionario f) {
+		while(this.empregados[contador] ==)
+		this.empregados[] = f;
+	}
+}

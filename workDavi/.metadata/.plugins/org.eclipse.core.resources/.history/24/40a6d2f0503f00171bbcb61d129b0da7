@@ -1,0 +1,9 @@
+
+class ParDeDados {
+	int[] dado1 = new int[6];
+	int[] dado2 = new int[6];
+	
+	void rolar(){
+		
+	}
+}

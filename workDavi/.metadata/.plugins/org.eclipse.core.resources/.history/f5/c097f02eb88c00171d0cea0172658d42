@@ -1,0 +1,56 @@
+package br.cefetmg.banco.controle;
+
+public class Banco {
+	private String nome;
+	private ControleCliente ctlCliente;
+
+	// Guarda a referencia para a única instancia de banco
+	private static Banco instance;
+
+	private Banco(String nome) {
+		this.nome = nome;
+		ctlCliente = new ControleCliente();
+	}
+
+	// getInstance cria o objeto
+	public static Banco getInstance() {
+		if (instance == null) {
+			instance = new Banco("Banco do CEFET");
+		}
+		return instance;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public boolean adicionar(Cliente cliente) {
+		return ctlCliente.adiciona(cliente);
+	}
+
+	public boolean alterar(Cliente cliente) {
+		return ctlCliente.altera(cliente);
+	}
+
+	public boolean excluir(String cpf) {
+		return ctlCliente.excluir(cpf);
+	}
+
+	public Cliente buscar(String cpf) {
+		for (int i = 0; i < numClientes; i++) {
+			if (clientes[i].getCpf().equals(cpf)) {
+				return new Cliente(clientes[i]);
+			}
+		}
+		return null;
+	}
+
+	public Cliente[] listar() {
+		Cliente[] c = new Cliente[clientes.length];
+		for (int i = 0; i < numClientes; i++) {
+			c[i] = new Cliente(clientes[i]);
+		}
+		return c;
+	}
+
+}

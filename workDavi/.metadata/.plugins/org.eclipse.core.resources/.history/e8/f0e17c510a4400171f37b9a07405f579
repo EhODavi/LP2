@@ -1,0 +1,19 @@
+
+class Aluno {
+	int numMatricula;
+	String nome;
+	String sobrenome;
+	String endereco;
+	String telefone;
+	Disciplina[] disciplinas = new Disciplina[12];
+
+	int numeroAcima() {
+		int contador = 0;
+		int i;
+		for (i = 0; i < disciplinas.length; i++) {
+			if (disciplinas[i].nota >= 60) {
+				contador++;
+			}
+		}
+	}
+}

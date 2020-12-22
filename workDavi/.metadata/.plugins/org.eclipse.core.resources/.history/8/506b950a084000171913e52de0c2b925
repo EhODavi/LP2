@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+//objetivo é atingir 100 pontos antes do seu adversário.
+class JogoPig {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		leia.close();
+	}
+}

@@ -1,0 +1,15 @@
+
+class Conta {
+	private int numero;
+	private Cliente titular = new Cliente();
+	private double saldo;
+	private double limite;
+
+	public void saca(double quantidade) {
+		if (this.saldo + this.limite < quantidade) {
+			System.out.println("Não posso sacar fora do limite!");
+		} else {
+			this.saldo = this.saldo - quantidade;
+		}
+	}
+}

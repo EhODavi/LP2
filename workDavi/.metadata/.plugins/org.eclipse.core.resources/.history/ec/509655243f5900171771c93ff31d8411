@@ -1,0 +1,47 @@
+
+class Aluno {
+	private int numMatricula;
+	private static int identificadorUnico;
+	private Pessoa p;
+	private Disciplina[] d;
+	private String dtMatricula;
+	
+	private Aluno(Pessoa p, Disciplina[] d, String dtMatricula) {
+		this.p = p;
+		this.d = d;
+		this.dtMatricula = dtMatricula;
+		this.numMatricula = Aluno.identificadorUnico;
+		Aluno.identificadorUnico++;
+	}
+	
+	public static Aluno newInstance(Pessoa p, Disciplina[] d, String dtMatricula) {
+		if(p != null && d != null && dtMatricula != null) {
+			return new Aluno(p, d, dtMatricula);
+		} else {
+			return null;
+		}
+	}
+	
+	
+	
+	public int getNumMatricula() {
+		return this.numMatricula;
+	}
+	
+	public int getIdentificadorUnico() {
+		return Aluno.identificadorUnico;
+	}
+	
+	public Pessoa getP() {
+		return this.p;
+	}
+	
+	public Disciplina[] getD() {
+		return this.d;
+	}
+	
+	public String getDtMatricula() {
+		return this.dtMatricula;
+	}
+	
+}

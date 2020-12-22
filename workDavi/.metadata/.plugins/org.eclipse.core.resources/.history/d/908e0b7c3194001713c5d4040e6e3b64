@@ -1,0 +1,6 @@
+package listaExercicios05;
+
+class Fornecedor extends Pessoa {
+	protected double creditoMax;
+	protected double valorEmDivida;
+}

@@ -1,0 +1,15 @@
+
+class TesteCartao {
+	public static void main(String[] args) {
+		
+		Conta conta = new Conta();
+		Cartao cartao = new Cartao();
+		
+		conta.limite = 1000;
+		conta.numero = 007;
+		conta.saldo = 1500;
+	
+		cartao.c = conta;
+		cartao.senhaNumerica = 006;
+	}
+}

@@ -1,0 +1,45 @@
+
+class Colonia {
+	Bacteria[] bacs = new Bacteria[1000000];
+	int numBacterias;
+	double totalDeLixoMetabolizadoMortas;
+	double totalDeLIxoDasVivas;
+
+	Colonia(int numInicial) {
+		for (int i = 0; i < numInicial; i++) {
+			bacs[i] = new Bacteria();
+		}
+		numBacterias = numInicial;
+	}
+
+	void passar1Hora() {
+		// passar 1 hora nas bacterias
+		for (int i = 0; i < numBacterias; i++) {
+			bacs[i].passagemDeHora();
+		}
+
+		// reproduzir as bacterias
+		int numBacAntes = numBacterias;
+		for (int i = 0; i < numBacAntes; i++) {
+			if (bacs[i].getTempoDeVida() % 3 == 0) {
+				// criando um objeto bacteria = reproducao
+				bacs[numBacterias] = new Bacteria();
+				numBacterias++;
+			}
+		}
+
+		// retirar as bacterias mortas
+		for (int i = 0; i < numBacterias; i++) {
+			if (bacs[i].getTempoDeVida() >= 25) {
+				totalDeLixoMetabolizadoMortas += bacs[i].getLixoMetabolizado();
+				numBacterias--;
+				bacs[i] = bacs[numBacterias];
+				bacs[numBacterias] = null;
+			} 
+		}
+	}
+
+	double getTotalDeLIxo() {
+		return totalDeLixoMetabolizadoMortas + totalDeLIxoDasVivas;
+	}
+}

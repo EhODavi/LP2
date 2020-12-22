@@ -1,0 +1,24 @@
+
+class Pessoa {
+	private String nome;
+	private int idade;
+	private static int numPessoas;
+
+	public Pessoa(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
+
+	public static int getNumPessoas() {
+		return Pessoa.numPessoas;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+}

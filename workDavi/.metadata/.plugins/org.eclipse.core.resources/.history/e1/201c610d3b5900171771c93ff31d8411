@@ -1,0 +1,23 @@
+
+class Disciplina {
+	private int codigo;
+	private static int numCodigos;
+	private String nomeDisciplina;
+	private String professor;
+
+	public int getCodigo() {
+		return this.codigo;
+	}
+
+	public int getNumCodigos() {
+		return Disciplina.numCodigos;
+	}
+
+	public String getNomeDisciplina() {
+		return this.nomeDisciplina;
+	}
+
+	public String getProfessor() {
+		return this.professor;
+	}
+}

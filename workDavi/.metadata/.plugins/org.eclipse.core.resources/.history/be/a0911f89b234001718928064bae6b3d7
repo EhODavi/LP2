@@ -1,0 +1,9 @@
+
+public class Endereco {
+	String tipo;
+	String logradouro; // rua, av, praça, travessa
+	int numero;
+	String cidade;
+	String uf;
+	String cep;
+}

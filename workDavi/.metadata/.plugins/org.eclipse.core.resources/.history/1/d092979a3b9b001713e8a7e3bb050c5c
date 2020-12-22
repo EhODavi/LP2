@@ -1,0 +1,5 @@
+package br.cefetmg.RVCA.dados;
+
+class RepoProduto {
+
+}

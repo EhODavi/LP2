@@ -1,0 +1,13 @@
+
+class VetorOrdenado {
+	Pessoa[] v = new Pessoa[10];
+
+	boolean adiciona(Pessoa p) {
+
+		return false;
+	}
+
+	void listar() {
+
+	}
+}

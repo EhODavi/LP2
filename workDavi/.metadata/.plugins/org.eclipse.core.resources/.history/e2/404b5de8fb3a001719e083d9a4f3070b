@@ -1,0 +1,25 @@
+
+class Exercicio02Antes {
+	public static void main(String[] args) {
+		
+	}
+	int[][] matriz(int N) {
+		int linha;
+		int coluna;
+		int contador = N - 1;
+		int contador1 = 0;
+		int contador2 = 1;
+		
+		if (N > 0) {
+			int[][] matrizGerada = new int[N][N];
+			for(linha = 0; linha < N; linha++) {
+				for(coluna = 0; coluna < N; coluna++) {
+					if((linha == contador1 || linha == matrizGerada.length - contador2) || 
+					   (coluna == contador1 || coluna == matrizGerada[linha].length)) - contador2)) {
+						
+					}
+				}
+			}
+		}
+	}
+}

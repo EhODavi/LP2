@@ -1,0 +1,18 @@
+package br.cefetmg.RVCA.dados;
+
+import java.util.List;
+
+import br.cefetmg.RVCA.controle.Produto;
+
+public class RepoProduto {
+	private List<Produto> produtos;
+	
+	public boolean adicionarProduto(Produto produto) {
+		if (produto != null) {
+			this.produtos.add(produto);
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

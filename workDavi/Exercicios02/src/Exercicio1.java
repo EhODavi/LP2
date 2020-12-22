@@ -1,25 +1,23 @@
 import java.util.Scanner;
-class Aluno
-{
+
+class Aluno {
 	String nome;
 	double idade;
 	String endereco;
 	String Dtinscricao;
 	String DtCarta;
 }
-public class Exercicio1 
-{
-	public static void main(String[] args)
-	{
+
+public class Exercicio1 {
+	public static void main(String[] args) {
 		int contador;
 		double menorIdade = 0;
 		int posicao = 0;
-		
+
 		Aluno[] alunos = new Aluno[2];
 		Scanner leia = new Scanner(System.in);
-		
-		for(contador = 0; contador < alunos.length; contador++)
-		{
+
+		for (contador = 0; contador < alunos.length; contador++) {
 			alunos[contador] = new Aluno();
 			System.out.println("Informe o nome do aluno: ");
 			alunos[contador].nome = leia.next();
@@ -32,14 +30,10 @@ public class Exercicio1
 			System.out.println("Informe o endereço do aluno: ");
 			alunos[contador].endereco = leia.next();
 		}
-		for(contador = 0; contador < alunos.length; contador++)
-		{
-			if(contador == 0)
-			{
+		for (contador = 0; contador < alunos.length; contador++) {
+			if (contador == 0) {
 				menorIdade = alunos[contador].idade;
-			}
-			else if(menorIdade > alunos[contador].idade)
-			{
+			} else if (menorIdade > alunos[contador].idade) {
 				menorIdade = alunos[contador].idade;
 				posicao = contador;
 			}

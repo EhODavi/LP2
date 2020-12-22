@@ -1,0 +1,21 @@
+
+class Porta {
+	boolean aberta;
+	String cor;
+	double dimensaoX;
+	double dimensaoY;
+	double dimensaoZ;
+	
+	void abre() {
+		
+	}
+	void fecha() {
+		
+	}
+	void pinta(String s) {
+		
+	}
+	boolean estaAberta() {
+		
+	}
+}

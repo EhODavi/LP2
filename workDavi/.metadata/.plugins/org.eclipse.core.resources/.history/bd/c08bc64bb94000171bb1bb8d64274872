@@ -1,0 +1,21 @@
+
+class Colonia {
+	Bacteria[] bacs = new Bacteria[1000];
+	int numBacterias;
+	double totalDeLixoMetabolizado;
+
+	void passar1Hora() {
+		// passar 1 hora nas bacterias
+		for (int i = 0; i < numBacterias; i++) {
+			bacs[i].passagemDeHora();
+		}
+
+		// reproduzir as bacterias
+		int numBacAntes = numBacterias;
+		for (int i = 0; i < numBacAntes; i++) {
+			if (bacs[i].getTempoDeVida() % 3 == 0) {
+
+			}
+		}
+	}
+}

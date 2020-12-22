@@ -1,0 +1,40 @@
+package classe;
+
+
+// REGISTRO CONTA - PROGRAMAÇÃO ESTRUTURADA
+public class Conta {
+	int numero;
+	String nome;
+	double saldo;
+	double limite;
+	
+	public static boolean sacar(Conta c, double valor) {
+		if (c != null && valor > 0 && valor <= c.saldo + c.limite) {
+			c.saldo = c.saldo - valor;
+			return true;
+		} else
+			return false;
+	}
+
+	public static boolean depositar(Conta c, double valor) {
+		if (c != null && valor > 0) {
+			c.saldo = c.saldo + valor;
+			return true;
+		} else
+			return false;
+	}
+
+	public static boolean transferir(Conta origem, Conta destino,
+			double valor) {
+		if (sacar(origem, valor)) {
+			depositar(destino, valor);
+			return true;
+		} else
+			return false;
+	}
+
+	public static void colocarLimite(Conta c, double limite) {
+		if (limite > 0)
+			c.limite = limite;
+	}
+}

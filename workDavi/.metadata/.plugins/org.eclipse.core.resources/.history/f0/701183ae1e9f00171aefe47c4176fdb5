@@ -1,0 +1,34 @@
+package RevisaoProva;
+
+public class Filme {
+	private int codigoUnico;
+	private String nome;
+	private String diretor;
+	private String[] atores;
+	private int numAtores;
+	private int duracao;
+	private static int geraCodigo;
+	
+	private Filme(String nome, String diretor, String[] atores, int numAtores, int duracao) {
+		this.codigoUnico = Filme.geraCodigo;
+		this.nome = nome;
+		this.diretor = diretor;
+		this.atores = atores;
+		this.numAtores = numAtores;
+		this.duracao = duracao;
+		Filme.geraCodigo++;
+	}
+	
+	public static Filme newInstance(String nome, String diretor, String[] atores, int numAtores, int duracao) {
+		if(nome != null && diretor != null && atores.length == numAtores && numAtores > 0 && duracao > 0) {
+			int contador = 0;
+			for(int i = 0; i < atores.length; i++) {
+				if(atores[i] != null) {
+					contador++;
+				}
+			}
+			return new Filme(nome, diretor, atores, numAtores, duracao);
+		}
+		return null;
+	}
+}

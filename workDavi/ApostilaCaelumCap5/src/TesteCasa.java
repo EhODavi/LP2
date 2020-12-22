@@ -1,0 +1,31 @@
+
+class TesteCasa {
+	public static void main(String[] args) {
+
+		Casa casinha = new Casa();
+		Porta[] portinha = new Porta[3];
+		casinha.portas = new Porta[3];
+		
+		casinha.cor = "Amarelo";
+		
+		portinha[0] = new Porta();
+		portinha[0].pinta("Amarelo");
+		portinha[0].aberta = true;
+		casinha.adicionaPorta(portinha[0]);
+	
+		portinha[1] = new Porta();
+		portinha[1].pinta("Azul");
+		portinha[1].aberta = false;
+		casinha.adicionaPorta(portinha[1]);
+		
+		portinha[2] = new Porta();
+		portinha[2].pinta("Rosa");
+		portinha[2].aberta = true;
+		casinha.adicionaPorta(portinha[2]);
+		
+		int numero = casinha.quantasPortasEstaoAbertas();
+		System.out.println("Portas abertas: " + numero);
+		
+		
+	}
+}

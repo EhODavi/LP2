@@ -1,0 +1,29 @@
+package br.cefetmg.banco.controle;
+
+public class ControleCliente {
+
+	public boolean adiciona(Cliente cliente) {
+		return false;
+	}
+
+	public boolean altera(Cliente cliente) {
+
+		return false;
+	}
+
+	public boolean excluir(String cpf) {
+
+		return false;
+	}
+
+	public Cliente buscar(String cpf) {
+
+		return null;
+	}
+
+	public Cliente[] listar() {
+
+		return null;
+	}
+
+}

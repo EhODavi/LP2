@@ -1,0 +1,18 @@
+package listaExercicios05;
+
+class Container {
+	private int id;
+	private String origem;
+	private String destino;
+	private double peso;
+	
+	private static int geraID;
+
+	public Container(int codigo, String origem, String destino, double peso) {
+		geraID++;
+		this.id = geraID;
+		this.origem = origem;
+		this.destino = destino;
+		this.peso = peso;
+	}
+}

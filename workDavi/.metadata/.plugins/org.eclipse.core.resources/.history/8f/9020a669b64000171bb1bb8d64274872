@@ -1,0 +1,34 @@
+/* Esta consome o dobro de seu peso em lixo por hora.
+De 3 em 3 horas cada bactéria se dividem em duas.
+Uma bactéria vive apenas 25 horas e depois morre.
+*/
+
+class Bacteria {
+	double tempoDeVida = 25;
+	double lixoMetabolizado = 0;
+	double peso = 0.00000000001;
+	int horas = 0;
+	boolean status = true;
+
+	double quantoComeu() {
+		return this.lixoMetabolizado;
+	}
+
+	void simularPassagemDeHora() {
+		if (this.status == true) {
+			this.horas = this.horas + 1;
+			this.tempoDeVida = this.tempoDeVida - 1;
+			this.lixoMetabolizado = this.lixoMetabolizado + (2 * peso);
+			if (this.horas % 3 == 0) {
+
+			}
+			if (this.tempoDeVida == 0) {
+				this.status = false;
+			}
+		}
+	}
+
+	double tempoDeVidaRestante() {
+		return this.tempoDeVida;
+	}
+}

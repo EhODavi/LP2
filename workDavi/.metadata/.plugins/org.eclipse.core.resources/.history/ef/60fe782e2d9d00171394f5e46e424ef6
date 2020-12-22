@@ -1,0 +1,37 @@
+package listaExercicios05;
+
+public class SistemaContainer {
+	private Container[] conts;
+	private int fim;
+	private static SistemaContainer instance;
+
+	public SistemaContainer() {
+		conts = new Container[60];
+	}
+
+	// Singleton
+	public static SistemaContainer getInstance() {
+		if (instance == null) {
+			instance = new SistemaContainer();
+		}
+		return instance;
+	}
+
+	public boolean adiciona(Container c) {
+		if (c != null && fim < conts.length) { // Verificando se é possível inicializar
+			// Instanceof = verifica o tipo do objeto para qual a referencia aponta
+			if (c instanceof ContainerDryBox) {
+				conts[fim] = c;
+			} else {
+				int numR = 0;
+				while(conts[numR] != null && conts[numR] instanceof ContainerRefrigerado) {
+					numR++;
+				}
+			}
+			fim++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

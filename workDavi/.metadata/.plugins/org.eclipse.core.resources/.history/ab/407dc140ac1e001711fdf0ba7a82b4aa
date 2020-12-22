@@ -1,0 +1,70 @@
+package classe;
+
+
+// PROGRAMAÇÃO ESTRUTURADA
+public class ExemploContaRegistro {
+	public static void main(String[] args) {
+		// VARIÁVEIS DE REGISTRO CONTA
+		Conta c1 = new Conta();
+		Conta c2 = new Conta();
+		Conta c3 = new Conta();
+
+		System.out.println("Saldo rc1: " + c1.saldo);
+		System.out.println("Saldo rc2: " + c2.saldo);
+
+		colocarLimite(c1, 300);
+
+		if (depositar(c1, 500))
+			System.out.println("Depósito realizado");
+		else
+			System.out.println("Depósito falhou");
+		System.out.println("Saldo rc1: " + c1.saldo);
+		System.out.println("Saldo rc2: " + c2.saldo);
+		if (sacar(c1, 800))
+			System.out.println("Saque realizado");
+		else
+			System.out.println("Saque falhou");
+		
+		c1.limite = 100;
+		
+		System.out.println("Saldo rc1: " + c1.saldo);
+		System.out.println("Saldo rc2: " + c2.saldo);
+		if (transferir(c1, c2, 150))
+			System.out.println("Transferência realizada");
+		else
+			System.out.println("Transferência falhou");
+
+		System.out.println("Saldo rc1: " + c1.saldo);
+		System.out.println("Saldo rc2: " + c2.saldo);
+	}
+
+	public static boolean sacar(Conta c, double valor) {
+		if (c != null && valor > 0 && valor <= c.saldo + c.limite) {
+			c.saldo = c.saldo - valor;
+			return true;
+		} else
+			return false;
+	}
+
+	public static boolean depositar(Conta c, double valor) {
+		if (c != null && valor > 0) {
+			c.saldo = c.saldo + valor;
+			return true;
+		} else
+			return false;
+	}
+
+	public static boolean transferir(Conta origem, Conta destino,
+			double valor) {
+		if (sacar(origem, valor)) {
+			depositar(destino, valor);
+			return true;
+		} else
+			return false;
+	}
+
+	public static void colocarLimite(Conta c, double limite) {
+		if (limite > 0)
+			c.limite = limite;
+	}
+}

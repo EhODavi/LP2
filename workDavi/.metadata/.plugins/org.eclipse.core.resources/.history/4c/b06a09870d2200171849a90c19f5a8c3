@@ -1,0 +1,12 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class DoacaoOrgaos 
+{
+	FileReader fileR;
+	BufferedReader buff;
+	public static void main(String[] args)
+	{
+		fileR = new FileReader("Doadores e Fila de Espera.txt");
+	}
+}

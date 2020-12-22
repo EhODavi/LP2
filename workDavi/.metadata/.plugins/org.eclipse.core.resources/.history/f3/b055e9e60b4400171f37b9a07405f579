@@ -1,0 +1,12 @@
+
+class Questao3 {
+	public static void main(String[] args) {
+		Frase frase = new Frase();
+		frase.add("Eu");
+		frase.add("ainda");
+		frase.add("quero");
+		frase.add("passar");
+		int num = frase.temQuantasLetras('a');
+		System.out.println("O numero de letras é " + num);
+	}
+}

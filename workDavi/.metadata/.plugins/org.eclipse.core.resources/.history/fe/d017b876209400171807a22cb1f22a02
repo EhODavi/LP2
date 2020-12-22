@@ -1,0 +1,19 @@
+package RVCA;
+
+class Login {
+	private String usuario;
+	private String senha;
+
+	public static Login newInstance(String usuario, String senha) {
+		if (usuario != null && senha != null) {
+			return new Login(usuario, senha);
+		} else {
+			return null;
+		}
+	}
+
+	Login(String usuario, String senha) {
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+}

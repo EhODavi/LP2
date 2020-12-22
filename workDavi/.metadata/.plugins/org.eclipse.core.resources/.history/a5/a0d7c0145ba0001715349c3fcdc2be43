@@ -1,0 +1,19 @@
+package br.cefetmg.RVCA.controle;
+
+import br.cefetmg.RVCA.dados.RepoProduto;
+
+public class ControleProduto {
+	private RepoProduto repoProduto;
+
+	public ControleProduto() {
+		repoProduto = new RepoProduto();
+	}
+
+	public boolean adicionarProduto(Produto produto) {
+		return repoProduto.adicionarProduto(produto);
+	}
+
+	public boolean alterarProduto(Produto produto) {
+		return repoProduto.alterarProduto(produto);
+	}
+}

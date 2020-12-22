@@ -1,0 +1,68 @@
+package listaExercicios05;
+
+import java.util.Random;
+
+public class Colonia {
+	private Bacteria[] bacs = new Bacteria[1000000];
+	private int numBacterias;
+	private double totalDeLixoMetabolizadoMortas;
+	private double totalDeLIxoDasVivas;
+	private Random aleatorio = new Random();
+	private int contagemHoras;
+
+	Colonia(int numInicial) {
+		for (int i = 0; i < numInicial; i++) {
+			bacs[i] = new Bacteria();
+		}
+		numBacterias = numInicial;
+	}
+
+	public void passar1Hora() {
+		// passar 1 hora nas bacterias
+		for (int i = 0; i < numBacterias; i++) {
+			bacs[i].passagemDeHora();
+		}
+
+		// reproduzir as bacterias
+
+		int numBacAntes = numBacterias;
+		for (int i = 0; i < numBacAntes; i++) {
+			if (bacs[i].getTempoDeVida() % 3 == 0) {
+				// criando um objeto bacteria = reproducao
+				bacs[numBacterias] = new Bacteria();
+				numBacterias++;
+			}
+		}
+		// reproduzir final do dia;
+		if (contagemHoras % 24 == 0) {
+			numBacAntes = numBacterias;
+			double porcentagem = numBacterias * 0.8;
+			double totalMudadas = 0;
+			while (totalMudadas < porcentagem) {
+				for (int i = 0; i < numBacAntes; i++) {
+					if (totalMudadas < porcentagem && aleatorio.nextInt(10) > 5) {
+						// criando um objeto bacteria = reproducao
+						bacs[numBacterias] = new Bacteria();
+						numBacterias++;
+						totalMudadas++;
+					}
+				}
+			}
+		}
+		// retirar as bacterias mortas
+
+		for (int i = 0; i < numBacterias; i++) {
+			if (bacs[i].getTempoDeVida() >= aleatorio.nextInt(73) + 120) {
+				totalDeLixoMetabolizadoMortas += bacs[i].getLixoMetabolizado();
+				numBacterias--;
+				bacs[i] = bacs[numBacterias];
+				bacs[numBacterias] = null;
+			}
+		}
+		contagemHoras++;
+	}
+
+	public double getTotalDeLIxo() {
+		return totalDeLixoMetabolizadoMortas + totalDeLIxoDasVivas;
+	}
+}

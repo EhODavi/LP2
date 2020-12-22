@@ -1,0 +1,15 @@
+class PessoaFisica {
+	private String CPF;
+
+	public PessoaFisica(String CPF) {
+
+	}
+
+	public String getCPF() {
+		return this.CPF;
+	}
+	
+	private boolean validaCPF(String CPF) {
+		return true;
+	}
+}

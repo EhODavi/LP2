@@ -1,0 +1,14 @@
+
+class Aluno {
+	private int numMatricula;
+	private static int identificadorUnico;
+	private Pessoa p;
+	private 
+	public int getNumMatricula() {
+		return this.numMatricula;
+	}
+	
+	public int getIdentificadorUnico() {
+		return Aluno.identificadorUnico;
+	}
+}

@@ -1,0 +1,12 @@
+
+class Funcionario {
+	String nome;
+	String departamento;
+	double salario;
+	String dataEntrada;
+	String RG;
+	
+	void recebeAumento(double valor) {
+		this.salario = this.salario + valor;
+	}
+}

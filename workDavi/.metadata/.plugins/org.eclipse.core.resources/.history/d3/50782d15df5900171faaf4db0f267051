@@ -1,0 +1,23 @@
+class PessoaFisica {
+	private String CPF;
+
+	private PessoaFisica(String CPF) {
+		if (this.validaCPF(CPF) == true) {
+			this.CPF = CPF;
+		}
+	}
+	public static PessoaFisica newInstance(String CPF) {
+		if (CPF != null) {
+			return new PessoaFisica(CPF);
+		}
+		return null;
+	}
+	
+	public String getCPF() {
+		return this.CPF;
+	}
+
+	private boolean validaCPF(String CPF) {
+		return true;
+	}
+}

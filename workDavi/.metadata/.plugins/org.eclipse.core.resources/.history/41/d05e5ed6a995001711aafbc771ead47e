@@ -1,0 +1,16 @@
+package listaExercicios05;
+
+class Sistema {
+	protected Container[] c = new Container[60];
+	protected int numContainer = 0;
+
+	public boolean adicionar(Container c) {
+		if (c != null && this.numContainer < this.c.length) {
+			this.c[numContainer] = c;
+			numContainer++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

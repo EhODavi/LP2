@@ -1,0 +1,12 @@
+package pacote;
+
+public class Doadores // Registro dos Doadores
+{
+	String nomeD; // Nome do Doador
+	String sexoD; // Sexo do Doador
+	String idadeD; // Idade do Doador
+	String tipoSanguineoD; // Nome do Doador
+	String orgaoD; // Nome do Doador
+	String hospitalD; // Nome do Doador
+	String statusD; // Nome do Doador
+}

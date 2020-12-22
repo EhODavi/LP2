@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+//objetivo é atingir 100 pontos antes do seu adversário.
+class JogoPig {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		Pig jogao = new Pig();
+		Jogador vez = jogao.jogadores[0];
+		int posicao1;
+		int posicao2;
+		int opcao;
+		int pontuacaoRodada;
+		int cont;
+		for (cont = 0; cont < jogao.jogadores.length; cont++) {
+			jogao.jogadores[cont] = new Jogador();
+			jogao.jogadores[cont].pontuacao = 0;
+			jogao.jogadores[cont].status = "Normal";
+		}
+		cont = 1;
+		while (jogao.jogadores[0].pontuacao < 100 || jogao.jogadores[1].pontuacao < 100) {
+			System.out.println("Rodada " + cont);
+			System.out.println("Pontuação do jogador 1: " + jogao.jogadores[0].pontuacao);
+			System.out.println("Pontuação do jogador 2: " + jogao.jogadores[1].pontuacao);
+			posicao1 = jogao.parDados.rolarDado1();
+			posicao2 = jogao.parDados.rolarDado2();
+			pontuacaoRodada = posicao1 + posicao2;
+			System.out.println("Pontuação da Rodada: " + pontuacaoRodada);
+			if (posicao1 != 1 && posicao2 != 1) {
+				vez.pontuacao = vez.pontuacao + pontuacaoRodada;
+				if (vez.pontuacao >= 20) {
+					if (vez == jogao.jogadores[0]) {
+						vez = jogao.jogadores[1];
+					} else {
+						vez = jogao.jogadores[0];
+					}
+				}
+			} else if ((posicao1 == 1 || posicao2 == 1) && vez.status != "Arriscando") {
+				System.out.println("Você tirou o numero 1 em um dos dados!!!");
+				System.out.println("Opções: ");
+				System.out.println("1 - Perder todos os pontos da rodada e passar o controle dos dados ao adversário.");
+				System.out.println("2 - Arriscar a ser o Pig.");
+				opcao = leia.nextInt();
+				if (opcao == 1) {
+					vez.pontuacao = vez.pontuacao - pontuacaoRodada;
+					if (vez == jogao.jogadores[0]) {
+						vez = jogao.jogadores[1];
+					} else {
+						vez = jogao.jogadores[0];
+					}
+				} else {
+					vez.status = "Arriscando";
+					vez.pontuacao = vez.pontuacao - pontuacaoRodada;
+				}
+			} else if ((posicao1 == 1 || posicao2 == 1) && vez.status == "Arriscando") {
+				vez.pontuacao = 0;
+				vez.status = "Normal";
+				if (vez == jogao.jogadores[0]) {
+					vez = jogao.jogadores[1];
+				} else {
+					vez = jogao.jogadores[0];
+				}
+			}
+			cont++;
+		}
+		leia.close();
+	}
+}

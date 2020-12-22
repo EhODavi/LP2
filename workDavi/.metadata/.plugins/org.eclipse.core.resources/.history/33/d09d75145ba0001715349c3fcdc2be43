@@ -1,0 +1,84 @@
+package br.cefetmg.RVCA.controle;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.cefetmg.banco.controle.Banco;
+
+public class Sistema {
+
+	// private List<EmpresaCliente> empresaCliente;
+	private static Sistema instance;
+
+	private ControleLogin ctlLogin;
+	private ControleEmpresaCliente ctlEmpresaCliente;
+	private ControleProduto ctlProduto;
+
+	// ----------------------------------------------
+	public Sistema() {
+		this.empresaCliente = new ArrayList<EmpresaCliente>();
+		this.login = new ArrayList<Login>();
+	}
+
+	// ----------------------------------------------
+	public static Sistema getInstance() {
+		if (instance == null) {
+			instance = new Sistema();
+		}
+		return instance;
+	}
+
+	// ----------------------------------------------
+	public boolean adicionarEmpresa(EmpresaCliente empresaCliente) {
+		return ctlEmpresaCliente.adicionarEmpresa(empresaCliente);
+	}
+
+	// ----------------------------------------------
+	public boolean alterarEmpresa(EmpresaCliente empresaCliente) {
+		return ctlEmpresaCliente.alterarEmpresa(empresaCliente);
+	}
+
+	// ----------------------------------------------
+	public boolean excluirEmpresa(int codigo) {
+		return ctlEmpresaCliente.excluirEmpresa(codigo);
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente buscarEmpresa(int codigo) {
+		return ctlEmpresaCliente.buscarEmpresa(codigo);
+	}
+
+	// ----------------------------------------------
+	public List<EmpresaCliente> listarEmpresa() {
+		return ctlEmpresaCliente.listarEmpresa();
+	}
+
+	public boolean adicionarProduto(Produto produto) {
+		return ctlProduto.adicionarProduto(produto);
+	}
+
+	public boolean alterarProduto(Produto produto) {
+		return ctlProduto.alterarProduto(produto);
+	}
+
+	public boolean excluirProduto(int codigo) {
+		return ctlProduto.excluirProduto(codigo);
+		for (int i = 0; i < this.produtos.size(); i++) {
+			if (codigo == this.produtos.get(i).getCodigo()) {
+				this.produtos.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean adicionarLogin(Login login) {
+		return ctlLogin.adicionarLogin(login);
+	}
+
+	// ----------------------------------------------
+	public boolean buscarLogin(String usuario, String senha) {
+		return ctlLogin.buscarLogin(usuario, senha);
+	}
+}

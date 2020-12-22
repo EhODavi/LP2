@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Caminhao
+{
+	int numeroCaminhao;
+	int numeroCidades; // No maximo 6 cidades
+	int[] cidades = new int[numeroCidades];
+}
+public class Exercicio3 
+{
+	int[] cities = new int[10];
+	int contador;
+	Random aleatorio = new Random();
+	for(contador = 0; contador < cities.lenght; contador++)
+	{
+		cities[contador] = 
+	}
+}

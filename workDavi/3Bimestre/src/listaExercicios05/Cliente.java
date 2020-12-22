@@ -1,0 +1,41 @@
+package listaExercicios05;
+
+class Cliente extends Pessoa {
+	protected double creditoMax;
+	protected double valorEmDivida;
+
+	private Cliente(String nome, int idade, double peso, String cpf, double creditoMax, double valorEmDivida) {
+		super(nome, idade, peso, cpf);
+		this.creditoMax = creditoMax;
+		this.valorEmDivida = valorEmDivida;
+	}
+
+	public static Cliente newInstance(String nome, int idade, double peso, String cpf, double creditoMax,
+			double valorEmDivida) {
+		if (nome != null && idade > 0 && peso > 0 && creditoMax > 0 && valorEmDivida > 0 && cpf != null) {
+			return new Cliente(nome, idade, peso, cpf, creditoMax, valorEmDivida);
+		}
+		return null;
+	}
+
+	public double obterSaldo() {
+		return this.creditoMax - this.valorEmDivida;
+	}
+
+	public double getCreditoMax() {
+		return this.creditoMax;
+	}
+
+	public void setCreditoMax(double creditoMax) {
+		this.creditoMax = creditoMax;
+	}
+
+	public double getValorEmDivida() {
+		return this.valorEmDivida;
+	}
+
+	public void setValorEmDivida(double valorEmDivida) {
+		this.valorEmDivida = valorEmDivida;
+	}
+
+}

@@ -1,0 +1,7 @@
+package RevisaoProva;
+
+public class Locadora {
+	private String nome;
+	private Filme[] filmes;
+	private int filmesInseridos;
+}

@@ -1,0 +1,15 @@
+
+class Debito {
+	String nomeEstabelecimento;
+	double valorDebito;
+	
+	boolean debitar(double valor, String nome, int senha) {
+		A operação só é realizada se a senha passada por parâmetro for igual a armazenada no
+
+		cartão e o saldo da conta permitir o débito. Neste caso o nome do estabelecimento e o valor são
+
+		armazenados em relacaoDeDebitos. O método debitar devolve um valor booleano indicando se a
+
+		operação foi realizada.
+	}
+}

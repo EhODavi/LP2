@@ -1,0 +1,7 @@
+package br.cefetmg.RVCA.controle;
+
+import br.cefetmg.RVCA.dados.RepoLogin;
+
+public class ControleLogin {
+	private RepoLogin repoLogin;
+}

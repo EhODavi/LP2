@@ -1,0 +1,14 @@
+
+class Cartao {
+	Conta c;
+	int senhaNumerica;
+	Debito[] relacaoDeDebitos;
+	
+	boolean debitar(double valor, String nome, int senha) {
+		if(senha == this.senhaNumerica && c.saca(valor)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

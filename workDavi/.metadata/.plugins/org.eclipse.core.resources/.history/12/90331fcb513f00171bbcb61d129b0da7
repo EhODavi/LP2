@@ -1,0 +1,15 @@
+import java.util.Random;
+
+class ParDeDados {
+	int[] dado1 = new int[6];
+	int[] dado2 = new int[6];
+
+	int rolar() {
+		Random aleatorio = new Random();
+		int posicao1;
+		int posicao2;
+		posicao1 = aleatorio.nextInt(6) + 1;
+		posicao2 = aleatorio.nextInt(6) + 1;
+		return posicao1 && posicao2;
+	}
+}

@@ -1,0 +1,102 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Banco {
+
+	private List<EmpresaCliente> empresaCliente = new ArrayList<EmpresaCliente>();
+
+	public boolean adicionarEmpresa(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			this.empresaCliente.add(empresaCliente);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterarEmpresa(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i).getCodigo() == empresaCliente.getCodigo()) {
+					this.empresaCliente.add(empresaCliente);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluirEmpresa(int codigo) {
+		if (codigo > 0 && codigo < this.empresaCliente.size()) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i) != null) {
+					if (codigo == this.empresaCliente.get(i).getCodigo()) {
+						this.empresaCliente.remove(i);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	// ----------------------------------------------
+	public Cliente buscar(String cpf) {
+		for (int i = 0; i < numClientes; i++) {
+			if (clientes[i].getCpf().equals(cpf)) {
+				return new Cliente(clientes[i]);
+			}
+		}
+		return null;
+	}
+
+	// ----------------------------------------------
+	public List<EmpresaCliente> listarEmpresa() {
+		return this.empresaCliente;
+	}
+
+	// ----------------------------------------------
+	public boolean adicionarProdutoB(Produto produto, ) {
+		if (produto != null) {
+			this.empresaCliente
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterarProdutoB(Produto produto) {
+		if (produto != null) {
+			for (int i = 0; i < this.produtos.size(); i++) {
+				if (this.produtos.get(i).getCodigo() == produto.getCodigo()) {
+					this.produtos.add(produto);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluirProdutoB(int codigo) {
+		if (codigo > 0 && codigo < this.produtos.size()) {
+			for (int i = 0; i < this.produtos.size(); i++) {
+				if (codigo == this.produtos.get(i).getCodigo()) {
+					this.produtos.remove(i);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public List<Produto> listarProdutoB() {
+		return this.produtos;
+	}
+}

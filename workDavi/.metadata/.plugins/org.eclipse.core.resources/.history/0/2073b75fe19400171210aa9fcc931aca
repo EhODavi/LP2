@@ -1,0 +1,35 @@
+package listaExercicios05;
+
+public class Empregado {
+	protected int numeroSecao;
+	protected double salarioBase;
+	protected double IR;
+
+	public int getNumeroSecao() {
+		return this.numeroSecao;
+	}
+
+	public void setNumeroSecao(int numeroSecao) {
+		this.numeroSecao = numeroSecao;
+	}
+
+	public double getSalarioBase() {
+		return this.salarioBase;
+	}
+
+	public void setSalarioBase(double salarioBase) {
+		this.salarioBase = salarioBase;
+	}
+
+	public double getIR() {
+		return this.IR;
+	}
+
+	public void setIR(double iR) {
+		IR = iR;
+	}
+	
+	public double calcularSalario() {
+		
+	}
+}

@@ -1,0 +1,12 @@
+
+class Disciplina {
+	private int codigo;
+	private static int numCodigos;
+	
+	public int getCodigo() {
+		return this.codigo;
+	}
+	public int getNumCodigos() {
+		return Disciplina.numCodigos;
+	}
+}

@@ -1,0 +1,80 @@
+package RVCA;
+import java.util.ArrayList;
+class Banco {
+
+	private List<EmpresaCliente> empresaCliente = new ArrayList<EmpresaCliente>(); //EmpresaCliente[] empresaCliente;
+	private static int numEmpresas;
+
+	public Banco() {
+		this.empresaCliente = new EmpresaCliente[10];
+		Banco.numEmpresas = 0;
+	}
+
+	// ----------------------------------------------
+	public boolean adicionar(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null && numEmpresas < this.empresaCliente.length) {
+			this.empresaCliente[Banco.numEmpresas] = empresaCliente;
+			Banco.numEmpresas++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterar(EmpresaCliente empresaCliente) {
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			if (empresaCliente != null) {
+				if (this.empresaCliente[i].getCodigo() == empresaCliente.getCodigo()) {
+					this.empresaCliente[i] = empresaCliente;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluir(int codigo) {
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			if (empresaCliente[i] != null) {
+				if (codigo == empresaCliente[i].getCodigo()) {
+					for (int j = i; j < Banco.numEmpresas; j++) {
+						empresaCliente[j] = empresaCliente[j + 1];
+					}
+					Banco.numEmpresas--;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente buscar(int codigo) {
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			if (empresaCliente[i] != null) {
+				if (codigo == empresaCliente[i].getCodigo()) {
+					return empresaCliente[i];
+				}
+			}
+		}
+		return null;
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente[] listar() {
+		EmpresaCliente[] c = new EmpresaCliente[Banco.numEmpresas];
+		int contador = 0;
+		for (int i = 0; i < Banco.numEmpresas; i++) {
+			c[contador] = this.empresaCliente[i];
+			contador++;
+		}
+		return c;
+	}
+
+	// ----------------------------------------------
+	public static int getNumEmpresas() {
+		return Banco.numEmpresas;
+	}
+}

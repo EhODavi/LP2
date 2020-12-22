@@ -1,0 +1,9 @@
+
+class TesteCasa {
+	public static void main(String[] args) { 
+		Casa casinha = new Casa();
+		casinha.cor = "Amarelo";
+		casinha.totalDePortas = 3;
+		casinha.portas = new Porta[3];
+	}
+}

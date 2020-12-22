@@ -1,0 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Utilizar List no trabalho e não usar herança
+public class TesteList {
+	public static void main(String[] args) {
+		// String [] nomes = new String[];
+		
+		List<String> nomes = new ArrayList<String>(); // Funciona apenas com objetos
+	}
+}

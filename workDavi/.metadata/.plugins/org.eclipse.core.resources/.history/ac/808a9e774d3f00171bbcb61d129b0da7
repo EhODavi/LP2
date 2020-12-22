@@ -1,0 +1,7 @@
+
+class Colonia {
+	Bacteria[] bacterias;
+	simula a passagem de horas (das bactérias), retorna a quantidade de bactérias existentes e o total de lixo consumido.
+
+	Faça um programa de teste que simula a passagem de N horas.
+}

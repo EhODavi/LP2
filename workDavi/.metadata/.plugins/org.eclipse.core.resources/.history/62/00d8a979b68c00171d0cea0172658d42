@@ -1,0 +1,5 @@
+package br.cefetmg.banco.dados;
+
+public class RepoCliente {
+
+}

@@ -1,0 +1,9 @@
+import java.util.Scanner;
+class Exercicio24 {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		Funcionario f1 = new Funcionario();
+		
+		leia.close();
+	}
+}

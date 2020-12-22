@@ -1,0 +1,25 @@
+package listaExercicios05;
+
+public class SistemaContainer {
+	private Container[] conts;
+	private int fim;
+	private static SistemaContainer instance;
+
+	public SistemaContainer() {
+		conts = new Container[60];
+	}
+
+	// Singleton
+	public static SistemaContainer getInstance() {
+		if (instance == null) {
+			instance = new SistemaContainer();
+		}
+		return instance;
+	}
+
+	public void adiciona(Container c) {
+		if(c != null && fim < 0 conts.length) {
+			
+		}
+	}
+}

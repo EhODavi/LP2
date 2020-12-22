@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Caminhao
+{
+	int numeroCaminhao;
+	int numeroCidades; // No maximo 6 cidades
+	int[] cidades = new int[numeroCidades];
+}
+public class Exercicio3 
+{
+	public static void main(String[] args)
+	{
+		int[] cities = new int[10];
+		int[][] matrizCity = new int [10][10];
+		int linha;
+		int coluna;
+		Random aleatorio = new Random();
+		
+		for(linha = 0; linha < cities.length; linha ++)
+		{
+			cities[linha] = aleatorio.nextInt(100);
+		}
+		for(coluna = 0; coluna < matrizCity[linha].length; coluna++)
+		{
+			for(linha = 0; linha < matrizCity.length; linha++)
+			{
+				matrizCity[linha][coluna] = cities[linha] - cities[coluna];
+			}
+		}
+	}
+}

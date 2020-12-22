@@ -1,0 +1,12 @@
+package listaExercicios05;
+
+class ContaCorrente extends Conta {
+	public void atualiza(double taxa) {
+		super.atualiza(taxa); // Atualiza não retorna
+		super.atualiza(taxa);
+	}
+
+	public void deposita(double valor) {
+		this.saldo += valor - 0.10;
+	}
+}

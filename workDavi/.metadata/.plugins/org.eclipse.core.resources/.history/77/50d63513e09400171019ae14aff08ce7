@@ -1,0 +1,14 @@
+package listaExercicios05;
+
+class TestaFornecedorPessoa {
+	public static void main(String[] args) {
+		Pessoa p = new Pessoa();
+		p.setNome("Davi");
+		p.setIdade(16);
+		p.setCpf("123");
+		p.setPeso(60);
+		Fornecedor f;
+		f = p; // IMPORTANTE
+		
+	}
+}

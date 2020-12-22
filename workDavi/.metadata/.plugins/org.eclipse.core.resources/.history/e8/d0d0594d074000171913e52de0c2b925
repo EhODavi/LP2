@@ -1,0 +1,9 @@
+
+class Jogador {
+	int pontuacao;
+	String status;
+	
+	void jogarDados() {
+		
+	}
+}

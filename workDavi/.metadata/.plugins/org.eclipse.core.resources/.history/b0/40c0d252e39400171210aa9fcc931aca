@@ -1,0 +1,8 @@
+package listaExercicios05;
+
+class Administrador extends Funcionario02 {
+	protected double ajudasDeCusto;
+	public double calcularSalario() {
+		return this.salarioBase - (this.salarioBase * this.IR);
+	}
+}

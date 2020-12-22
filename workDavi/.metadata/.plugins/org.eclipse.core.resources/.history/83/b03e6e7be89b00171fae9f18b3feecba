@@ -1,0 +1,17 @@
+package br.cefetmg.RVCA.controle;
+
+import br.cefetmg.RVCA.dados.RepoLogin;
+import br.cefetmg.banco.controle.Cliente;
+import br.cefetmg.banco.dados.RepoCliente;
+
+public class ControleLogin {
+	private RepoLogin repoLogin;
+	
+	public ControleLogin() {
+		repoLogin = new RepoLogin();
+	}
+	
+	public Cliente buscar(String cpf) {
+		return repoCliente.buscar(cpf);
+	}
+}

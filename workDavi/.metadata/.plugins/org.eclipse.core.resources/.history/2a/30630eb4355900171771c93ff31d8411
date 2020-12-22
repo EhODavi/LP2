@@ -1,0 +1,12 @@
+
+class ExercicioPessoa {
+	private String nome;
+	private String sobrenome;
+	private String cpf;
+	
+	public ExercicioPessoa(String nome, String sobrenome, String cpf) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+	}
+}

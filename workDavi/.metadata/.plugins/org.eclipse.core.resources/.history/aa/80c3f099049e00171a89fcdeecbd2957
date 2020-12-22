@@ -1,0 +1,32 @@
+package listaExercicios05;
+
+class Administrador extends Funcionario02 {
+	protected double ajudasDeCusto;
+
+	private Administrador(String nome, int idade, double peso, String cpf, int numeroSecao, double salarioBase,
+			double IR, double ajudasDeCusto) {
+
+	}
+
+	public static Administrador newInstance(String nome, int idade, double peso, String cpf, int numeroSecao,
+			double salarioBase, double IR, double ajudasDeCusto) {
+		if (nome != null && idade > 0 && peso > 0 && cpf != null && numeroSecao > 0 && salarioBase > 0 && IR > 0
+				&& ajudasDeCusto > 0) {
+
+			return new Administrador(nome, idade, peso, cpf, numeroSecao, salarioBase, IR, ajudasDeCusto);
+		}
+		return null;
+	}
+
+	public double calcularSalario() {
+		return super.calcularSalario() + this.ajudasDeCusto;
+	}
+
+	public double getAjudasDeCusto() {
+		return this.ajudasDeCusto;
+	}
+
+	public void setAjudasDeCusto(double ajudasDeCusto) {
+		this.ajudasDeCusto = ajudasDeCusto;
+	}
+}

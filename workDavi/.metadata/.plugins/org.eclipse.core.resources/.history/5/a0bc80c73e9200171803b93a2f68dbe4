@@ -1,0 +1,62 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class InventarioEstoque {
+	private List<Produto> produtos = new ArrayList<Produto>();
+
+	public boolean adicionar(Produto produto) {
+		if (produto != null) {
+			this.produtos.add(produto);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean alterar(Produto produto) {
+		if (produto != null) {
+			for (int i = 0; i < this.produtos.size(); i++) {
+				if (this.produtos.get(i).getCodigo() == produto.getCodigo()) {
+					this.produtos.add(produto);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean excluir(int codigo) {
+		if (codigo > 0 && codigo < this.produtos.size()) {
+			for (int i = 0; i < this.produtos.size(); i++) {
+				if (codigo == this.produtos.get(i).getCodigo()) {
+					this.produtos.remove(i);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public List<Produto> listar() {
+		return this.produtos;
+	}
+
+	public int[] getQuantidade() {
+		return quantidade;
+	}
+
+	public boolean setQuantidade(int quantidade) {
+		this.quantidade[numProdutos] = quantidade;
+		return true;
+	}
+
+	public double[] getValorTotal() {
+		return valorTotal;
+	}
+
+	public static int getNumProdutos() {
+		return numProdutos;
+	}
+}

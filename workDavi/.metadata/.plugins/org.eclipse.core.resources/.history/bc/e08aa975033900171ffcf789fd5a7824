@@ -1,0 +1,10 @@
+
+class Funcionario {
+	String nome;
+	String departamento;
+	double salario;
+	String dataEntrada;
+	String RG;
+	
+	
+}

@@ -1,0 +1,11 @@
+package listaExercicios05;
+
+public class TestaContainer {
+	public static void main(String[] args) {
+		ContainerDryBox dry = ContainerDryBox.newInstance("São Paulo","Santos", 5000, true);
+		
+		TipoAlimentacao tipo = TipoAlimentacao.DIESEL;
+		
+		ContainerRefrigerado ref = ContainerRefrigerado.newInstance("São Paulo","Santos", 5000, true)
+	}
+}

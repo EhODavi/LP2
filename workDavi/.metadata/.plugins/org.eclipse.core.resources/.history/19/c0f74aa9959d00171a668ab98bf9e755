@@ -1,0 +1,15 @@
+package br.cefetmg.RVCA.controle;
+
+import br.cefetmg.RVCA.dados.RepoEmpresaCliente;
+
+public class ControleEmpresaCliente {
+	private RepoEmpresaCliente repoEmpresaCliente;
+
+	public ControleEmpresaCliente() {
+		repoEmpresaCliente = new RepoEmpresaCliente();
+	}
+
+	public boolean adicionarEmpresa(EmpresaCliente empresaCliente) {
+		return repoEmpresaCliente.adicionarEmpresa(empresaCliente);
+	}
+}

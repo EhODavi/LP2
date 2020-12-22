@@ -1,0 +1,8 @@
+import java.util.Scanner;
+
+class JogoPig {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		leia.close();
+	}
+}

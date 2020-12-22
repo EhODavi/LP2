@@ -1,0 +1,45 @@
+package listaExercicios05;
+
+class Sistema {
+	protected Container[] c = new Container[60];
+	protected int numContainer = 0;
+
+	public boolean adicionar(Container c) {
+		if (c != null && this.numContainer < this.c.length) {
+			this.c[numContainer] = c;
+			numContainer++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean excluir() {
+		for (int i = 0; i < this.numContainer; i++) {
+			for (int j = i; j < this.numContainer; j++) {
+				this.c[j] = this.c[j + 1];
+			}
+			this.numContainer--;
+			return true;
+		}
+		return false;
+	}
+
+	public Container[] listar() {
+		Container[] c = new Container[this.c.length];
+		for (int i = 0; i < this.numContainer; i++) {
+			c[i] = this.c[i];
+		}
+		return c;
+	}
+	verificarDryBox
+
+	public Container buscar(int codigo) {
+		for (int i = 0; i < this.numContainer; i++) {
+			if (codigo == this.c[i].codigo) {
+				return this.c[i];
+			}
+		}
+		return null;
+	}
+}

@@ -1,0 +1,14 @@
+import java.util.Scanner;
+class Agencia {
+	public static void main(String[] args) {
+		Scanner leia = new Scanner(System.in);
+		System.out.println("Quantas Candidatas: ");
+		int num = leia.nextInt();
+		Candidata[] candidatas = new Candidata[num];
+		
+		leia.close();
+	}
+	public static boolean excluirCandidata(int numInscricao) {
+		
+	}
+}

@@ -1,0 +1,59 @@
+package listaExercicios05;
+
+public class Container {
+	protected int id;
+	protected String origem;
+	protected String destino;
+	protected double peso;
+
+	private static int geraID;
+
+	public Container(String origem, String destino, double peso) {
+		geraID++;
+		this.id = geraID;
+		this.origem = origem;
+		this.destino = destino;
+		this.peso = peso;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getOrigem() {
+		return origem;
+	}
+
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+	public static int getGeraID() {
+		return geraID;
+	}
+
+	public static void setGeraID(int geraID) {
+		Container.geraID = geraID;
+	}
+
+}

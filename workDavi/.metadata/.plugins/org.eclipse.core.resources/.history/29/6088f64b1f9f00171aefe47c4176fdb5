@@ -1,0 +1,14 @@
+package RevisaoProva;
+
+public class Locadora {
+	private String nome;
+	private Filme[] filmes;
+	private int filmesInseridos;
+	private static Locadora instance = null;
+	
+	private Locadora() {
+		
+	}
+	
+	public static 
+}

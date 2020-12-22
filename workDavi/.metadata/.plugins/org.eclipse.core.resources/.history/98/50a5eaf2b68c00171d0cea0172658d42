@@ -1,0 +1,15 @@
+package br.cefetmg.banco.dados;
+
+import br.cefetmg.banco.controle.Cliente;
+
+// Repositorio Cliente é responsável pelo armazenamento
+// (Persistencia) dos objetos da classe cliente
+public class RepoCliente {
+	private Cliente[] clientes;
+	private int numClientes;
+
+	public RepoCliente() {
+		clientes = new Cliente[10];
+		numClientes = 0;
+	}
+}

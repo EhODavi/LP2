@@ -1,0 +1,41 @@
+
+class Disciplina {
+	private int codigo;
+	private static int numCodigos;
+	private String nomeDisciplina;
+	private String professor;
+
+	public Disciplina() {
+		this.codigo = Disciplina.numCodigos;
+		Disciplina.numCodigos++;
+	}
+	
+
+	public int getCodigo() {
+		return this.codigo;
+	}
+
+	public static int getNumCodigos() {
+		return Disciplina.numCodigos;
+	}
+
+	public String getNomeDisciplina() {
+		return this.nomeDisciplina;
+	}
+
+	public String getProfessor() {
+		return this.professor;
+	}
+
+	public void setNomeDisciplina(String nomeDisciplina) {
+		if (nomeDisciplina != null) {
+			this.nomeDisciplina = nomeDisciplina;
+		}
+	}
+
+	public void setProfessor(String professor) {
+		if (professor != null) {
+			this.professor = professor;
+		}
+	}
+}

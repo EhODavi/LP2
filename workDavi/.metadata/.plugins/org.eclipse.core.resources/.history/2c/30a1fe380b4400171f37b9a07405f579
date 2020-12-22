@@ -1,0 +1,7 @@
+
+class Frase {
+	String frase;
+	void add() {
+		
+	}
+}

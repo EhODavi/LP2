@@ -1,0 +1,17 @@
+package listaExercicios05;
+
+public class TestaBanco {
+	public static void main(String[] args) {
+		AtualizadorDeContas ac = new AtualizadorDeContas(0.01);
+		Banco b = new Banco();
+		Conta c = new Conta();
+		b.adiciona(c);
+		Conta cc = new ContaCorrente(); // !!!
+		b.adiciona(cc);
+		Conta cp = new ContaPoupanca();
+		b.adiciona(cp);
+		for(int i = 0; i < b.contas.size(); i++) {
+			ac.roda(b.pegaConta(i));
+		}
+	}
+}

@@ -1,0 +1,75 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class InventarioEstoque {
+	private List<Produto> produtos = new ArrayList<Produto>();
+
+	public boolean adicionar(Produto produto) {
+		if (produto != null && numProdutos < produtos.length) {
+			produtos[numProdutos] = produto;
+			valorTotal[numProdutos] = quantidade * produto.getValorPorUnidadeMedida();
+			this.quantidade[numProdutos] = quantidade;
+			InventarioEstoque.numProdutos++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean alterar(Produto produto) {
+		for (int i = 0; i < InventarioEstoque.numProdutos; i++) {
+			if (produto != null) {
+				if (produtos[i].getCodigo() == produto.getCodigo()) {
+					produtos[i] = produto;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean excluir(int codigo) {
+
+		for (int i = 0; i < InventarioEstoque.numProdutos; i++) {
+			if (produtos[i] != null) {
+				if (codigo == produtos[i].getCodigo()) {
+					for (int j = i; j < InventarioEstoque.numProdutos; j++) {
+						produtos[j] = produtos[j + 1];
+						valorTotal[j] = valorTotal[j + 1];
+						quantidade[j] = quantidade[j + 1];
+					}
+					InventarioEstoque.numProdutos--;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public Produto[] listar() {
+		Produto[] c = new Produto[produtos.length];
+		for (int i = 0; i < InventarioEstoque.numProdutos; i++) {
+			c[i] = produtos[i];
+		}
+		return c;
+	}
+
+	public int[] getQuantidade() {
+		return quantidade;
+	}
+
+	public boolean setQuantidade(int quantidade) {
+		this.quantidade[numProdutos] = quantidade;
+		return true;
+	}
+
+	public double[] getValorTotal() {
+		return valorTotal;
+	}
+
+	public static int getNumProdutos() {
+		return numProdutos;
+	}
+}

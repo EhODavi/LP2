@@ -1,0 +1,25 @@
+
+class TesteCartao {
+	public static void main(String[] args) {
+		
+		Conta conta = new Conta();
+		Cartao cartao = new Cartao();
+		
+		conta.limite = 1000;
+		conta.numero = 007;
+		conta.saldo = 1500;
+	
+		cartao.c = conta;
+		cartao.senhaNumerica = 006;
+		cartao.relacaoDeDebitos = new Debito[3];
+		
+		cartao.relacaoDeDebitos[0].nomeEstabelecimento = "Mac Donald";
+		cartao.relacaoDeDebitos[0].valorDebito = 300;
+		
+		cartao.relacaoDeDebitos[1].nomeEstabelecimento = "Chine";
+		cartao.relacaoDeDebitos[1].valorDebito = 300;
+		
+		cartao.relacaoDeDebitos[2].nomeEstabelecimento = "Subway";
+		cartao.relacaoDeDebitos[2].valorDebito = 300;
+	}
+}

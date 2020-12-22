@@ -1,0 +1,10 @@
+package listaExercicios05;
+
+class TestaAdministrador {
+	public static void main(String[] args) {
+		Administrador a = new Administrador();
+		a.setAjudasDeCusto(1000);
+		a.setIR(0.01);
+		a.setSalarioBase(1000);
+	}
+}

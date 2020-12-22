@@ -1,0 +1,137 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+class Hospitais
+{
+	String nomeH;
+	String qualidadeH;
+	String ruaH;
+	String cidadeH;
+	String bairroH;
+	String telefoneH;
+	String distanciaH;
+	String tempoH;
+}
+class Doadores
+{
+	String nomeD;
+	String sexoD;
+	String idadeD;
+	String tipoSanguineoD;
+	String orgaoD;
+	String hospitalD;
+	String statusD;
+}
+public class DoacaoOrgaos 
+{
+	public static void main(String[] args)
+	{
+		int quantidade;
+		int opcao = 0;
+		int linha;
+		int coluna;
+		Hospitais[] vetorHospitais = new Hospitais[10];
+		Doadores[] vetorDoadores = new Doadores[100];
+		String teclado;
+		FileReader caminhoHospitais = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Hospitais.txt");
+		FileReader caminhoDoadores = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+		
+		quantidade = carregarDoadores(caminhoDoadores)
+				preencherHospitais(caminhoHospitais,Hospitais)
+				preencherDoadores(caminhoDoadores,Doadores)
+				
+				escreva("Seja bem-vindo ao novo programa de doações de orgãos da região do Vale do Aço \n\n")
+				enquanto (opcao != 3)
+				{
+					escreva("Escolha o que você deseja: \n")
+					escreva("1) Doar orgãos \n")
+					escreva("2) Entrar na fila de espera para receber orgãos \n")
+					escreva("3) Sair \n\n")
+
+					escreva("Escolha uma opção: \n")
+					leia(opcao)
+
+					limpa()
+
+					escolha (opcao)
+					{
+						caso 1:
+							se(quantidade < 100)
+							{
+					 			adicionarDoadorEspera(Doadores, quantidade)	
+					 			escreva("Cadastro feito com sucesso! \n")		 		
+							}
+							senao
+							{
+								escreva("\nA memória do programa está cheia\n")	
+							}
+							
+							escreva("\nPressione qualquer tecla para continuar...\n")	
+							leia(teclado)				
+							limpa()
+							pare
+						caso 2:
+							se(quantidade < 100)
+							{
+								Doadores[quantidade][6] = "Espera"
+					 			adicionarDoadorEspera(Doadores, quantidade)	
+					 			escreva("Cadastro feito com sucesso! \n")		 		
+							}
+							senao
+							{
+								escreva("\nA memória do programa está cheia\n")	
+							}
+							escreva("\nPressione qualquer tecla para continuar...\n")	
+							leia(teclado)				
+							limpa()
+							pare
+						caso 3:
+							salvarArquivo(caminhoDoadores, Doadores, quantidade)
+					 		escreva ("Sistema encerrado com sucesso! \n\n")
+							pare
+						caso contrario:
+							escreva ("Opção Inválida!\n\n")
+					}
+				}
+				limpa()
+				escreva("Obrigado por utilizar o nosso programa!!!")
+	}
+	public static ()// funcao, vou coloca-la ainda
+	{
+		int posicaoInicio;
+		int posicaoFim;
+		String parteLinha;
+		
+		try 
+		{
+			FileReader arquivo = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+			BufferedReader lerArquivo = new BufferedReader(arquivo);
+			String linha = lerArquivo.readLine(); 
+			while (linha != null) 
+			{
+				posicaoInicio = 0;
+				posicaoFim = 0;
+				while(posicaoFim != -1)
+				{
+					posicaoFim = linha.indexOf(";",posicaoInicio);
+					if(posicaoFim != -1)
+					{
+						parteLinha = linha.substring(posicaoInicio, posicaoFim);
+						System.out.printf("%s\n", parteLinha);
+						posicaoInicio = posicaoFim + 1;
+					}
+				}
+				linha = lerArquivo.readLine();
+			}
+	  arquivo.close();
+		} 
+		catch (IOException e) 
+		{
+			System.err.printf("Erro na abertura do arquivo: %s.\n",
+					e.getMessage());
+		}
+		System.out.println();
+	}
+}

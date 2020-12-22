@@ -1,0 +1,155 @@
+package br.cefetmg.RVCA.controle;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmpresaCliente {
+	private String CNPJ;
+	private String nome;
+	private String inscricaoEstadual;
+	private String telefone;
+	private int codigo;
+	private static int geraCodigo = 1;
+	private List<Produto> produtos = new ArrayList<Produto>();
+
+	// Fabrica
+	public static EmpresaCliente newInstance(String CNPJ, String inscricaoEstadual, String nome, String telefone) {
+		if (CNPJ != null && inscricaoEstadual != null && nome != null && telefone != null) {
+			return new EmpresaCliente(CNPJ, inscricaoEstadual, nome, telefone);
+		} else {
+			return null;
+		}
+	}
+
+	// Contrutor
+	private EmpresaCliente(String CNPJ, String inscricaoEstadual, String nome, String telefone) {
+		this.CNPJ = CNPJ;
+		this.inscricaoEstadual = inscricaoEstadual;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.codigo = geraCodigo;
+		this.inventario = new InventarioEstoque();
+		geraCodigo++;
+	}
+	
+	public boolean adicionarProduto(Produto produto) {
+		if (produto != null) {
+			this.produtos.add(produto);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterarProduto(Produto produto) {
+		if (produto != null) {
+			for (int i = 0; i < this.produtos.size(); i++) {
+				if (this.produtos.get(i).getCodigo() == produto.getCodigo()) {
+					this.produtos.remove(i);
+					this.produtos.add(i, produto);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluirProduto(int codigo) {
+		for (int i = 0; i < this.produtos.size(); i++) {
+			if (codigo == this.produtos.get(i).getCodigo()) {
+				this.produtos.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public Produto buscarProduto(int codigo) {
+		Produto p;
+		for (int i = 0; i < this.produtos.size(); i++) {
+			if (this.produtos.get(i).getCodigo() == codigo) {
+				p = this.produtos.get(i);
+				return p;
+			}
+		}
+		return null;
+	}
+
+	// ----------------------------------------------
+	public List<Produto> listarProduto() {
+		return this.produtos;
+	}
+
+	// Alterar
+	public boolean setCNPJ(String CNPJ) {
+		if (CNPJ != null) {
+			this.CNPJ = CNPJ;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean setNome(String nome) {
+		if (nome != null) {
+			this.nome = nome;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean setInscricaoEstadual(String inscricaoEstadual) {
+		if (inscricaoEstadual != null) {
+			this.inscricaoEstadual = inscricaoEstadual;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean setTelefone(String telefone) {
+		if (telefone != null) {
+			this.telefone = telefone;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public String getCNPJ() {
+		return this.CNPJ;
+	}
+
+	// ----------------------------------------------
+	public String getNome() {
+		return this.nome;
+	}
+
+	// ----------------------------------------------
+	public String getInscricaoEstadual() {
+		return this.inscricaoEstadual;
+	}
+
+	// ----------------------------------------------
+	public String getTelefone() {
+		return this.telefone;
+	}
+
+	// ----------------------------------------------
+	public int getCodigo() {
+		return this.codigo;
+	}
+
+	// ----------------------------------------------
+	public InventarioEstoque getInventario() {
+		return this.inventario;
+	}
+}

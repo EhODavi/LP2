@@ -1,0 +1,89 @@
+package RVCA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Banco {
+
+	private List<EmpresaCliente> empresaCliente = new ArrayList<EmpresaCliente>();
+	private List<Login> login = new ArrayList<Login>();
+
+	// ----------------------------------------------
+	public boolean adicionarEmpresa(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			this.empresaCliente.add(empresaCliente);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean alterarEmpresa(EmpresaCliente empresaCliente) {
+		if (empresaCliente != null) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i).getCodigo() == empresaCliente.getCodigo()) {
+					this.empresaCliente.add(empresaCliente);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public boolean excluirEmpresa(int codigo) {
+		if (codigo > 0 && codigo < this.empresaCliente.size()) {
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i) != null) {
+					if (codigo == this.empresaCliente.get(i).getCodigo()) {
+						this.empresaCliente.remove(i);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	// ----------------------------------------------
+	public EmpresaCliente buscarEmpresa(int codigo) {
+		if (codigo > 0 && codigo < this.empresaCliente.size()) {
+			EmpresaCliente c;
+			for (int i = 0; i < this.empresaCliente.size(); i++) {
+				if (this.empresaCliente.get(i).getCodigo() == codigo) {
+					c = this.empresaCliente.get(i);
+					return c;
+				}
+			}
+		}
+		return null;
+	}
+
+	// ----------------------------------------------
+	public List<EmpresaCliente> listarEmpresa() {
+		return this.empresaCliente;
+	}
+
+	// ----------------------------------------------
+	public boolean adicionarLogin(Login login) {
+		if (login != null) {
+			this.login.add(login);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ----------------------------------------------
+	public boolean buscarLogin(String usuario, String senha) {
+		if (usuario != null && senha != null) {
+			for (int i = 0; i < this.login.size(); i++) {
+				if (this.login.get(i).getUsuario().equals(usuario) && this.login.get(i).getSenha().equals(senha)) {
+
+				}
+
+			}
+		}
+	}
+}

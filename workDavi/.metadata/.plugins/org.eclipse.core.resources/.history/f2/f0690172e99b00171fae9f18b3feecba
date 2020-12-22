@@ -1,0 +1,10 @@
+package br.cefetmg.RVCA.dados;
+
+import java.util.List;
+
+import br.cefetmg.RVCA.controle.Login;
+
+public class RepoLogin {
+	private List<Login> login;
+	
+}

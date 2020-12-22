@@ -1,0 +1,7 @@
+
+class TesteExercicioPessoa {
+	public static void main(String[] args) {
+		ExercicioPessoa p1;
+		p1.newInstance(null, null, null); // É POSSIVEL CHAMAR POIS O NEW INSTANCE É STATIC
+	}
+}

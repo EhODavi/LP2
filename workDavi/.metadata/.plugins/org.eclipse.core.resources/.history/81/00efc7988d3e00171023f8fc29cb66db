@@ -1,0 +1,22 @@
+
+class Cartao {
+	Conta c;
+	int senhaNumerica;
+	Debito[] relacaoDeDebitos;
+	
+	boolean debitar(double valor, String nome, int senha) {
+		if(senha == this.senhaNumerica && this.c.saca(valor) == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	void gerarFatura(int senha) {
+		if(senha == this.senhaNumerica) {
+			for(int i = 0; i < this.relacaoDeDebitos.length; i++) {
+				System.out.println("Estabelecimento " + (i + 1) + ":" + this.relacaoDeDebitos[i].nomeEstabelecimento);
+				System.out.println("Valor " + (i + 1) + ":" + this.relacaoDeDebitos[i].valorDebito);
+			}
+		}
+	}
+}

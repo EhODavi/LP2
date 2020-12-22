@@ -1,0 +1,23 @@
+package listaExercicios05;
+
+public class ContainerRefrigerado extends Container {
+	protected double temperatura;
+	protected String tipoAlimentacao;
+
+	public double getTemperatura() {
+		return temperatura;
+	}
+
+	public void setTemperatura(double temperatura) {
+		this.temperatura = temperatura;
+	}
+
+	public String getTipoAlimentacao() {
+		return tipoAlimentacao;
+	}
+
+	public void setTipoAlimentacao(String tipoAlimentacao) {
+		this.tipoAlimentacao = tipoAlimentacao;
+	}
+
+}

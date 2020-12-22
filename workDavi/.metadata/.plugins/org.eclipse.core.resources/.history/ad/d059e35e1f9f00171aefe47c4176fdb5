@@ -1,0 +1,19 @@
+package RevisaoProva;
+
+public class Locadora {
+	private String nome;
+	private Filme[] filmes;
+	private int filmesInseridos;
+	private static Locadora instance = null;
+	
+	private Locadora(String nome, String tamanhoVetor) {
+		
+	}
+	
+	public static Locadora newInstance(String nome, int tamanhoVetor) {
+		if(nome != null && tamanhoVetor > 0) {
+			return new Locadora(nome, tamanhoVetor);
+		}
+		return null;
+	}
+}

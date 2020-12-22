@@ -1,0 +1,59 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+class Hospitais
+{
+	String nomeHospital;
+	String qualidadeHospital;
+	String ruaHospital;
+	String cidadeHospital;
+	String bairroHospital;
+	String telHospital;
+	String distanciaHospital;
+	String tempoHospital;
+}
+class Doadores
+{
+	
+}
+public class DoacaoOrgaos 
+{
+	public static void main(String[] args)
+	{
+		int posicaoInicio;
+		int posicaoFim;
+		String parteLinha;
+		
+		try 
+		{
+			FileReader arquivo = new FileReader("G:/Trabalho Final de LP - Doação de Orgãos/Doadores e Fila de Espera.txt");
+			BufferedReader lerArquivo = new BufferedReader(arquivo);
+			String linha = lerArquivo.readLine(); 
+			while (linha != null) 
+			{
+				posicaoInicio = 0;
+				posicaoFim = 0;
+				while(posicaoFim != -1)
+				{
+					posicaoFim = linha.indexOf(";",posicaoInicio);
+					if(posicaoFim != -1)
+					{
+						parteLinha = linha.substring(posicaoInicio, posicaoFim);
+						System.out.printf("%s\n", parteLinha);
+						posicaoInicio = posicaoFim + 1;
+					}
+				}
+				linha = lerArquivo.readLine();
+			}
+      arquivo.close();
+		} 
+		catch (IOException e) 
+		{
+			System.err.printf("Erro na abertura do arquivo: %s.\n",
+					e.getMessage());
+		}
+		System.out.println();
+	}
+}

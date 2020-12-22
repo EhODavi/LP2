@@ -1,0 +1,8 @@
+package Interface;
+
+import javax.swing.JFrame;
+
+public class Janela1 {
+	// Normalmente os componentes gráficos da janela são declarados como atributos
+	JFrame
+}

@@ -1,0 +1,38 @@
+package RevisaoProva;
+
+public class VetorOrdenado {
+	Pessoa[] v = new Pessoa[10];
+
+	boolean adiciona(Pessoa p) {
+		int numeroPessoa = 0;
+		int posicao;
+		if (p != null) {
+			for (int i = 0; i < v.length; i++) {
+				if (v[i] != null) {
+					numeroPessoa++;
+				}
+			}
+			if(numeroPessoa == 0) {
+				v[numeroPessoa] = p;
+			} else if (numeroPessoa < v.length) {
+				for(int y = 0; y < v.length; y++) {
+					if(v[y] != null ){
+						if(v[y].getIdade() > p.getIdade()) {
+							
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	void listar() {
+		for (int i = 0; i < v.length; i++) {
+			if (v[i] != null) {
+				System.out.println("Nome: " + v[i].getNome());
+				System.out.println("Idade: " + v[i].getIdade());
+			}
+		}
+	}
+}

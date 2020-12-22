@@ -1,0 +1,7 @@
+package br.cefetmg.RVCA.dados;
+
+import java.util.List;
+
+public class RepoProduto {
+	private List<Produto> empresaCliente;
+}

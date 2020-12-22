@@ -1,0 +1,7 @@
+
+class Bacteria {
+	double tempoDeVida = 0;
+	double lixoMetabolizado;
+	double peso = 10;
+	
+}

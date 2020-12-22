@@ -1,0 +1,7 @@
+
+class Exercicio25 {
+	public static void main(String[] args) {
+		Empresa e1 = new Empresa();
+		e1.empregados = new Funcionario[10];
+	}
+}

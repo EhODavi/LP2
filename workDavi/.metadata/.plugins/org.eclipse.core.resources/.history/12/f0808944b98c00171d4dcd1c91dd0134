@@ -1,0 +1,37 @@
+package br.cefetmg.banco.controle;
+
+import br.cefetmg.banco.dados.RepoCliente;
+
+public class ControleCliente {
+	private RepoCliente repoCliente;
+	
+	public ControleCliente() {
+		repoCliente = new
+	}
+	
+	public boolean adiciona(Cliente cliente) {
+		
+		return false;
+	}
+
+	public boolean alterar(Cliente cliente) {
+
+		return false;
+	}
+
+	public boolean excluir(String cpf) {
+
+		return false;
+	}
+
+	public Cliente buscar(String cpf) {
+
+		return null;
+	}
+
+	public Cliente[] listar() {
+
+		return null;
+	}
+
+}
