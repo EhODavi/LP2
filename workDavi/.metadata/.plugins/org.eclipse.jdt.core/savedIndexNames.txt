@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+G:\workDavi\.metadata\.plugins\org.eclipse.jdt.core
+2023513610.index
+4103412778.index
+3784642480.index

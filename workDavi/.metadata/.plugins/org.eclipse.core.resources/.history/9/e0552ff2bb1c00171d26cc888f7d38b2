@@ -1,0 +1,46 @@
+
+import java.util.Scanner;
+
+// Registro Aluno - Tipo definido pelo usuario 
+// armazena dados de 1 aluno
+class Aluno {
+	long matricula; // campo do registro
+	String nome;
+	double media;
+}
+
+public class ExemploRegistro1 {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		// Aluno a = null;
+		//
+		// a.matricula = 1;
+		// a.nome = "Joao";
+		// a.media = 7;
+
+		System.out.println("Quantos alunos?");
+		int numAlunos = scn.nextInt();
+
+		Aluno[] alunos = new Aluno[numAlunos];
+		double media = 0;
+		for (int i = 0; i < alunos.length; i++) {
+			System.out.println("Aluno " + i);
+			alunos[i] = new Aluno();
+			System.out.print("Matricula: ");
+			alunos[i].matricula = scn.nextLong();
+			System.out.print("Nome: ");
+			alunos[i].nome = scn.next();
+			System.out.print("Media: ");
+			alunos[i].media = scn.nextDouble();
+			media = media + alunos[i].media;
+		}
+		media = media / alunos.length;
+
+		System.out.println("Alunos acima da media da turma");
+		for (int i = 0; i < alunos.length; i++) {
+			if (alunos[i].media > media) {
+				System.out.println(alunos[i].nome);
+			}
+		}
+
+	}

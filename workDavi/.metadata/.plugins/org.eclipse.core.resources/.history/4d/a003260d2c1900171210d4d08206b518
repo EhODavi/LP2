@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Funcionario
+{
+	int numeroEmpresa;
+	int numeroFuncionario;
+	String nomeFuncionario;
+	String dataNascimento;
+	String estadoCivil;
+	String endereco;
+	String RG;
+	String CPF;
+	String telefone;
+	int numeroDependente;
+	String[] nomeDependente = new String[numeroDependente];
+	String[] grauParentesco = new String[numeroDependente];
+	String nomeMae;
+	String nomePai;
+}
+class Empresa
+{
+	String nomeEmpresa;
+	int enderecoEmpresa;
+	int numeroEmpresa;
+	String pessoaContato;
+	String emailEmpresa;
+	String[] fones = new String[10];
+}
+public class Exercicio2 
+{
+	public static void main(String[] args)
+	{
+		
+	}
+}

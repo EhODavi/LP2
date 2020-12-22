@@ -1,0 +1,90 @@
+import java.util.Scanner;
+
+class Funcionario
+{
+	int numeroEmpresa;
+	int numeroFuncionario;
+	String nomeFuncionario;
+	String dataNascimento;
+	String estadoCivil;
+	String endereco;
+	String RG;
+	String CPF;
+	String telefone;
+	int numeroDependente;
+	String[] nomeDependente = new String[numeroDependente];
+	String[] grauParentesco = new String[numeroDependente];
+	String nomeMae;
+	String nomePai;
+}
+class Empresa
+{
+	String nomeEmpresa;
+	int enderecoEmpresa;
+	int numeroEmpresa;
+	String pessoaContato;
+	String emailEmpresa;
+	int numeroFones;
+	String[] fones = new String[numeroFones];
+}
+public class Exercicio2 
+{
+	public static void main(String[] args)
+	{
+		Funcionario[] vetorFuncionario = new Funcionario[300];
+		Empresa[] vetorEmpresa = new Empresa[10];
+		int contador1;
+		int contador2;
+		Scanner leia = new Scanner(System.in);
+		
+		for (contador1 = 0; contador1 < vetorFuncionario.length; contador1++)
+		{
+			vetorFuncionario[contador1] = new Funcionario();
+			System.out.println("Funcionario " + contador1 + 1 + ":");
+			System.out.println("Informe o numero da empresa que o funcionario pertence: ");
+			vetorFuncionario[contador1].numeroEmpresa = leia.nextInt();
+			System.out.println("Informe o numero do funcionario: ");
+			vetorFuncionario[contador1].numeroFuncionario = leia.nextInt();
+			System.out.println("Informe o nome do funcionario: ");
+			vetorFuncionario[contador1].nomeFuncionario = leia.next();
+			System.out.println("Informe a data de nascimento do funcionario: "); // Mudar essa parte
+			vetorFuncionario[contador1].dataNascimento = leia.next();
+			System.out.println("Informe o estado civil do funcionario: ");
+			vetorFuncionario[contador1].estadoCivil = leia.next();
+			System.out.println("Informe o endereço do funcionario: ");
+			vetorFuncionario[contador1].endereco = leia.next();
+			System.out.println("Informe o RG do funcionario: ");
+			vetorFuncionario[contador1].RG = leia.next();
+			System.out.println("Informe o CPF do funcionario: ");
+			vetorFuncionario[contador1].CPF = leia.next();
+			System.out.println("Informe o telefone do funcionario: ");
+			vetorFuncionario[contador1].telefone = leia.next();
+			System.out.println("Informe o numero de dependentes do funcionario: ");
+			vetorFuncionario[contador1].numeroDependente = leia.nextInt();
+			for (contador2 = 0; contador2 < vetorFuncionario[contador1].numeroDependente; contador2++)
+			{
+				System.out.println("Dependente " + contador2 + 1 + ":");
+				vetorFuncionario[contador1].nomeDependente[contador2] = leia.next();
+				vetorFuncionario[contador1].grauParentesco[contador2] = leia.next();
+			}
+			System.out.println("Informe o nome da mae do funcionario: ");
+			vetorFuncionario[contador1].nomeMae = leia.next();
+			System.out.println("Informe o nome do pai do funcionario: ");
+			vetorFuncionario[contador1].nomePai = leia.next();
+		}
+		for (contador1 = 0; contador1 < vetorEmpresa.length; contador1++)
+		{
+			vetorEmpresa[contador1] = new Empresa();
+			System.out.println("Empresa " + contador1 + 1 + ":");
+			System.out.println("Informe o nome da empresa: ");
+			vetorEmpresa[contador1].nomeEmpresa = leia.next();
+			int enderecoEmpresa;
+			int numeroEmpresa;
+			String pessoaContato;
+			String emailEmpresa;
+			int numeroFones;
+			String[] fones = new String[numeroFones];
+		}
+		leia.close();
+	}
+}
